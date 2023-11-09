@@ -1,0 +1,12 @@
+{
+  "CFBundleDisplayName": "Playground-EN",
+  "NSCameraUsageDescription": "Required for document and facial capture",
+  "NSContactsUsageDescription": "Allow access to your contacts to connect with your friends already on this app",
+  "NSFaceIDUsageDescription": "Allow this app to use FaceID",
+  "NSMicrophoneUsageDescription": "Required for video capture",
+  "NSPhotoLibraryAddUsageDescription": "Allow this app to save photos",
+  "NSPhotoLibraryUsageDescription": "Allow this app to access your photos",
+  "NSUserTrackingUsageDescription": "This data will be used to give you a better and more tailored experience",
+
+  "hello": "hello dear {friend}!"
+}

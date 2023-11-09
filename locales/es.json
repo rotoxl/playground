@@ -1,0 +1,12 @@
+{
+  "CFBundleDisplayName": "Playground-ES",
+  "NSCameraUsageDescription": "Necesario para captura de documentos y cara",
+  "NSContactsUsageDescription": "Necesario para conectar con los amigos que tengas en la app",
+  "NSFaceIDUsageDescription": "Necesario para usar FaceID",
+  "NSMicrophoneUsageDescription": "Necesario para usar capturas de video y validar tu identidad",
+  "NSPhotoLibraryAddUsageDescription": "Necesario para guardar fotos en tu galería",
+  "NSPhotoLibraryUsageDescription": "Necesario para acceder a las fotos de tu galería",
+  "NSUserTrackingUsageDescription": "Necesario para proporcionarte una experiencia más rica",
+
+  "hello": "Hola {friend}!"
+}
