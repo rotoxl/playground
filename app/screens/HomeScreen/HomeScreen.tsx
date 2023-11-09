@@ -2,7 +2,7 @@ import { useNavigation } from '@app/navigation/hooks/useNavigation';
 import { RouteKeys } from '@app/navigation/routes';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback } from 'react';
-import { Button, Pressable, SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
+import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
 
 type CaseType = {
   title: string;
