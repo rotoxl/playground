@@ -1,4 +1,3 @@
-import { Language } from '@app/i18n/constants';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
