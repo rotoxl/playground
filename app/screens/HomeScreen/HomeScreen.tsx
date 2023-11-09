@@ -5,9 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>
-        Open up HomeScreen.tsx to start working on your app! {Language.EN}
-      </Text>
+      <Text>Open up HomeScreen.tsx to start working on your app!</Text>
       <StatusBar style="auto" />
     </View>
   );
