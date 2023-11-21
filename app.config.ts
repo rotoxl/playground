@@ -15,8 +15,16 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     backgroundColor: '#ffffff',
   },
   assetBundlePatterns: ['**/*'],
+  locales: {
+    en: './locales/en.json',
+    es: './locales/es.json',
+  },
+  scheme: 'myapp',
   ios: {
     supportsTablet: true,
+    infoPlist: {
+      CFBundleAllowMixedLocalizations: true,
+    },
   },
   android: {
     adaptiveIcon: {
@@ -27,4 +35,5 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   web: {
     favicon: './assets/favicon.png',
   },
+  plugins: ['expo-localization'],
 });

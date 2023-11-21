@@ -1,12 +1,41 @@
+import { useNavigation } from '@app/navigation/hooks/useNavigation';
+import { RouteKeys } from '@app/navigation/routes';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useCallback } from 'react';
+import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
+
+type CaseType = {
+  title: string;
+  screenName: RouteKeys;
+};
 
 export const HomeScreen = () => {
+  const { navigateMain } = useNavigation();
+  const cases = [
+    {
+      title: 'Localization',
+      screenName: 'LocalizationScreen',
+    },
+  ] satisfies CaseType[];
+
+  const handleNavigateCase = useCallback(
+    (screenName: RouteKeys) => () => {
+      navigateMain(screenName);
+    },
+    [],
+  );
+
+  const listItems = cases.map((item) => (
+    <Pressable key={item.title} onPress={handleNavigateCase(item.screenName)} style={styles.square}>
+      <Text>{item.title}</Text>
+    </Pressable>
+  ));
+
   return (
-    <View style={styles.container}>
-      <Text>Open up HomeScreen.tsx to start working on your app!</Text>
+    <SafeAreaView style={{ flex: 1 }}>
       <StatusBar style="auto" />
-    </View>
+      <ScrollView contentContainerStyle={styles.container}>{listItems}</ScrollView>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
@@ -15,5 +44,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  square: {
+    flex: 1,
+    maxHeight: 40,
+    backgroundColor: 'silver',
+    justifyContent: 'center',
+    margin: 10,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
   },
 });
