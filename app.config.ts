@@ -19,6 +19,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     en: './locales/en.json',
     es: './locales/es.json',
   },
+  scheme: 'myapp',
   ios: {
     supportsTablet: true,
     infoPlist: {
