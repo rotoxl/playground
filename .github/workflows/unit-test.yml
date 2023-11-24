@@ -1,0 +1,21 @@
+name: Unit test
+
+on: [push, pull_request]
+
+jobs:
+  run-unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
+
+      - name: Install Dependencies
+        run: yarn --prefer-offline --ignore-engines
+        
+      - name: Unit test
+        id: unit_test
+        run: yarn test
+
