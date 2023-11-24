@@ -1,10 +1,9 @@
 import '@testing-library/jest-native/extend-expect';
 
-import { useI18nLocale } from '@app/i18n/I18nProvider';
 import { Language } from '@app/i18n/constants';
 import { mockTranslations } from '@app/testing/mockTranslations';
 import { renderWrapped } from '@app/testing/renderWrapped';
-import { fireEvent, renderHook, waitFor } from '@testing-library/react-native';
+import { fireEvent, waitFor } from '@testing-library/react-native';
 
 import { LocalizationScreen } from '../LocalizationScreen'; // adjust this import according to your file structure
 
