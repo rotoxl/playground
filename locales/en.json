@@ -8,5 +8,6 @@
   "NSPhotoLibraryUsageDescription": "Allow this app to access your photos",
   "NSUserTrackingUsageDescription": "This data will be used to give you a better and more tailored experience",
 
-  "hello": "hello dear {friend}!"
+  "hello": "hello dear {friend}!",
+  "mockTranslationTest": "This is a mock translation test"
 }
