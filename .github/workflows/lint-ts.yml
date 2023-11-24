@@ -1,0 +1,31 @@
+# 🔗 Links:
+# Source file: https://github.com/obytes/react-native-template-obytes/blob/master/.github/workflows/type-check.yml
+
+name: Lint TS
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  type-check:
+    name: Type Check (tsc)
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📦 Checkout project repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup Node + PNPM + install deps
+        uses: ./.github/actions/setup-node-pnpm-install
+
+      - name: Check types with tsc
+        id: tsc_check
+        run: yarn tsc
+
+      - name: Check lint
+        id: lint_check
+        run: yarn lint
