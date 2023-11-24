@@ -8,7 +8,7 @@ export const useTranslations = () => {
   const intl = useIntl();
 
   const t = useCallback(
-    (id: TranslationId, values: Parameters<typeof intl.formatMessage>[1]) => {
+    (id: TranslationId, values?: Parameters<typeof intl.formatMessage>[1]) => {
       const value = intl.formatMessage({ id }, values);
 
       return FF_LONG_TEST_MODE ? `${value} ${value} ${value}` : value;

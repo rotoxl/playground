@@ -1,14 +1,16 @@
 import { FormattedMoney } from '@app/i18n/FormattedMoney';
+import { FormattedNumber } from '@app/i18n/FormattedNumber';
 import { useI18nLocale } from '@app/i18n/I18nProvider';
 import { DEFAULT_CURRENCY, Language } from '@app/i18n/constants';
 import { useTranslations } from '@app/i18n/useTranslations';
-import { FormattedDate, FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
+import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const LocalizationScreen = () => {
   const intl = useIntl();
-  const { setLocale } = useI18nLocale();
+  const { setLocale, locale } = useI18nLocale();
+
   const { t } = useTranslations();
 
   const msg = intl.formatMessage(
@@ -23,7 +25,21 @@ export const LocalizationScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Text style={{ color: 'white' }}>Using FormattedMessage</Text>
+      <Text style={{ color: 'white', fontSize: 20 }}>
+        Current lang: <Text testID="currentLang">{locale}</Text>
+      </Text>
+
+      <Text style={{ color: 'white', marginTop: 20 }}>
+        (✅ recommended ) Using our custom hook useTranslations (with type validation and
+        longTestMode for debugging)
+      </Text>
+      <Text style={{ color: 'white', fontSize: 20 }} testID="stringViaHook">
+        {t('hello', { friend: 'Ernesto' })}
+      </Text>
+
+      <Text style={{ color: 'white', marginTop: 20 }}>
+        (❌ not recommended) Using FormattedMessage
+      </Text>
 
       <Text style={{ color: 'white', fontSize: 20 }}>
         <FormattedMessage
@@ -33,25 +49,26 @@ export const LocalizationScreen = () => {
         />
       </Text>
 
-      <Text style={{ color: 'white', marginTop: 20 }}>Using intl.formatMessage</Text>
+      <Text style={{ color: 'white', marginTop: 20 }}>
+        (❌ not recommended) Using intl.formatMessage
+      </Text>
       <Text style={{ color: 'white', fontSize: 20 }}>{msg}</Text>
 
-      <Text style={{ color: 'white', marginTop: 20 }}>
-        Using our custom hook useTranslations (with type validation and longTestMode for debugging)
-      </Text>
-      <Text style={{ color: 'white', fontSize: 20 }}>{t('hello', { friend: 'Ernesto' })}</Text>
-
       <Text style={{ color: 'white', marginTop: 20 }}>Date and numbers</Text>
-      <Text style={{ color: 'white', fontSize: 20 }}>
-        <FormattedDate value={new Date()} year="numeric" month="short" day="numeric" />
+      <Text style={{ color: 'white', fontSize: 20 }} testID="date">
+        <FormattedDate value={new Date(2023, 11, 24)} year="numeric" month="short" day="numeric" />
       </Text>
 
-      <Text style={{ color: 'white', fontSize: 20 }}>
-        <FormattedNumber value={17542210.13} />
+      <Text style={{ color: 'white', fontSize: 20 }} testID="number">
+        <FormattedNumber value={17542210.131} />
       </Text>
 
-      <Text style={{ color: 'white', fontSize: 20 }}>
+      <Text style={{ color: 'white', fontSize: 20 }} testID="money">
         <FormattedMoney value={10000} currencyCode={DEFAULT_CURRENCY} />
+      </Text>
+
+      <Text style={{ color: 'white', fontSize: 20, marginTop: 20 }} testID="mockTranslationTest">
+        {t('mockTranslationTest')}
       </Text>
 
       <View
@@ -61,13 +78,13 @@ export const LocalizationScreen = () => {
           right: 30,
           bottom: 50,
         }}>
-        <Pressable onPress={() => setLocale(Language.EN)}>
+        <Pressable onPress={() => setLocale(Language.EN)} testID="changeEN">
           <View style={styles.buttonRound}>
             <Text>{Language.EN}</Text>
           </View>
         </Pressable>
 
-        <Pressable onPress={() => setLocale(Language.ES)}>
+        <Pressable onPress={() => setLocale(Language.ES)} testID="changeES">
           <View style={styles.buttonRound}>
             <Text>{Language.ES}</Text>
           </View>

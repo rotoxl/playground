@@ -8,5 +8,6 @@
   "NSPhotoLibraryUsageDescription": "Necesario para acceder a las fotos de tu galería",
   "NSUserTrackingUsageDescription": "Necesario para proporcionarte una experiencia más rica",
 
-  "hello": "Hola {friend}!"
+  "hello": "Hola {friend}!",
+  "mockTranslationTest": "Esto es una prueba del mock de traducción"
 }
