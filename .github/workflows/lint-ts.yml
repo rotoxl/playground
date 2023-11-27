@@ -19,12 +19,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}/.github/actions/setup-node-pnpm
-
       - name: 📦 Setup Node + PNPM + install deps
-        uses: ./.github/aactions/setup-node-pnpm-install/action.yml
+        uses: ./.github/actions/setup-node-pnpm-install/action.yml
 
       - name: Check types with tsc
         id: tsc_check
