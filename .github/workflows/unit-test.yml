@@ -34,9 +34,9 @@ jobs:
           coverage-summary-path: ./coverage/coverage-summary.json
           summary-title: '💯 Test Coverage'
           badge-title: Coverage
-          create-new-comment: false
+          create-new-comment: true
           junitxml-title: 😎 Tests Results
           junitxml-path: ./coverage/jest-junit.xml
           coverage-title: 👀 Tests Details
           coverage-path: ./coverage/coverage.txt
-          report-only-changed-files: true
+          report-only-changed-files: false
