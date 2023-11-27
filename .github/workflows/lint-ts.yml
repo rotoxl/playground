@@ -21,7 +21,7 @@ jobs:
 
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}/.github/actions        
+          ls ${{ github.workspace }}/.github/actions/setup-node-pnpm
 
       - name: 📦 Setup Node + PNPM + install deps
         uses: ./.github/aactions/setup-node-pnpm-install/action.yml
