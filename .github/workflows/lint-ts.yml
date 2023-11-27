@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: 📦 Setup Node + PNPM + install deps
-        uses: ./.github/actions/setup-node-pnpm-install/action.yml
+        uses: ./.github/actions/setup-node-pnpm-install
 
       - name: Check types with tsc
         id: tsc_check
