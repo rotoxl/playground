@@ -6010,6 +6010,16 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
+"jest-junit@^16.0.0":
+  "integrity" "sha512-A94mmw6NfJab4Fg/BlvVOUXzXgF0XIH6EmTgJ5NDPp4xoKq0Kr7sErb+4Xs9nZvu58pJojz5RFGpqnZYJTrRfQ=="
+  "resolved" "https://registry.npmjs.org/jest-junit/-/jest-junit-16.0.0.tgz"
+  "version" "16.0.0"
+  dependencies:
+    "mkdirp" "^1.0.4"
+    "strip-ansi" "^6.0.1"
+    "uuid" "^8.3.2"
+    "xml" "^1.0.1"
+
 "jest-leak-detector@^29.7.0":
   "integrity" "sha512-kYA8IJcSYtST2BY9I+SMC32nDpBT3J2NvWJx8+JCuCdl/CR1I4EKUJROiP8XtCcxqgTTBGJNdbB1A8XRKbTetw=="
   "resolved" "https://registry.npmjs.org/jest-leak-detector/-/jest-leak-detector-29.7.0.tgz"
@@ -9709,6 +9719,11 @@
   "integrity" "sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw=="
   "resolved" "https://registry.npmjs.org/xml-name-validator/-/xml-name-validator-4.0.0.tgz"
   "version" "4.0.0"
+
+"xml@^1.0.1":
+  "integrity" "sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw=="
+  "resolved" "https://registry.npmjs.org/xml/-/xml-1.0.1.tgz"
+  "version" "1.0.1"
 
 "xml2js@0.6.0":
   "integrity" "sha512-eLTh0kA8uHceqesPqSE+VvO1CDDJWMwlQfB6LuN6T8w6MaDJ8Txm8P7s5cHD0miF0V+GGTZrDQfxPZQVsur33w=="
