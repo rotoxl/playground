@@ -19,12 +19,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📦 Setup Node + PNPM + install deps
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-
       - name: 📦 Install Project Dependencies
         run: yarn --prefer-offline --ignore-engines
         shell: bash
