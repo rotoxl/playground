@@ -19,6 +19,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}/.github        
+
       - name: 📦 Setup Node + PNPM + install deps
         uses: ./.github/aactions/setup-node-pnpm-install/action.yml
 
