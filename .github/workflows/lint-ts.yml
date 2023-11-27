@@ -20,7 +20,14 @@ jobs:
           fetch-depth: 0
 
       - name: 📦 Setup Node + PNPM + install deps
-        uses: ./.github/actions/setup-node-pnpm-install
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: 📦 Install Project Dependencies
+        run: pnpm install --frozen-lockfile
+        shell: bash
 
       - name: Check types with tsc
         id: tsc_check
