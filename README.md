@@ -1,7 +1,7 @@
 This is a playground app with:
 
-- Expo / React Native
-- TypeScript
+- ✅ Expo / React Native (upgraded to beta-50)
+- ✅ TypeScript
 - [in progress] Jest and Maestro
-- [in progress] `react-navigation`
-- [in progress] `i18n`
+- ✅ `react-navigation`
+- ✅ `i18n`
