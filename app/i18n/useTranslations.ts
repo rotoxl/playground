@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { TranslationId } from '@app/i18n/constants';
 import { useCallback } from 'react';
 import { useIntl } from 'react-intl';

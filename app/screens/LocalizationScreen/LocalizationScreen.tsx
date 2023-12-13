@@ -24,24 +24,22 @@ export const LocalizationScreen = () => {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Text style={{ color: 'white', fontSize: 20 }}>
+    <SafeAreaView style={{ flex: 1, paddingHorizontal: 10 }}>
+      <Text style={styles.text}>
         Current lang: <Text testID="currentLang">{locale}</Text>
       </Text>
 
-      <Text style={{ color: 'white', marginTop: 20 }}>
+      <Text style={styles.textMargin}>
         (✅ recommended ) Using our custom hook useTranslations (with type validation and
         longTestMode for debugging)
       </Text>
-      <Text style={{ color: 'white', fontSize: 20 }} testID="stringViaHook">
+      <Text style={styles.text} testID="stringViaHook">
         {t('hello', { friend: 'Ernesto' })}
       </Text>
 
-      <Text style={{ color: 'white', marginTop: 20 }}>
-        (❌ not recommended) Using FormattedMessage
-      </Text>
+      <Text style={styles.textMargin}>(❌ not recommended) Using FormattedMessage</Text>
 
-      <Text style={{ color: 'white', fontSize: 20 }}>
+      <Text style={styles.text}>
         <FormattedMessage
           id="hello"
           defaultMessage="Hello {friend}!"
@@ -49,25 +47,31 @@ export const LocalizationScreen = () => {
         />
       </Text>
 
-      <Text style={{ color: 'white', marginTop: 20 }}>
-        (❌ not recommended) Using intl.formatMessage
-      </Text>
-      <Text style={{ color: 'white', fontSize: 20 }}>{msg}</Text>
+      <Text style={styles.textMargin}>(❌ not recommended) Using intl.formatMessage</Text>
+      <Text style={styles.text}>{msg}</Text>
 
-      <Text style={{ color: 'white', marginTop: 20 }}>Date and numbers</Text>
-      <Text style={{ color: 'white', fontSize: 20 }} testID="date">
+      <Text style={styles.textMargin}>Date and numbers</Text>
+      <Text style={styles.text} testID="date">
         <FormattedDate value={new Date(2023, 11, 24)} year="numeric" month="short" day="numeric" />
       </Text>
 
-      <Text style={{ color: 'white', fontSize: 20 }} testID="number">
+      <Text style={{ color: 'white', fontSize: 20 }} testID="number1">
         <FormattedNumber value={17542210.131} />
       </Text>
 
-      <Text style={{ color: 'white', fontSize: 20 }} testID="money">
+      <Text style={{ color: 'white', fontSize: 20 }} testID="number2">
+        <FormattedNumber value={17542.131} minimumFractionDigits={2} />
+      </Text>
+
+      <Text style={{ color: 'white', fontSize: 20 }} testID="number3">
+        <FormattedNumber value={29123} />
+      </Text>
+
+      <Text style={styles.text} testID="money">
         <FormattedMoney value={10000} currencyCode={DEFAULT_CURRENCY} />
       </Text>
 
-      <Text style={{ color: 'white', fontSize: 20, marginTop: 20 }} testID="mockTranslationTest">
+      <Text style={[styles.text, styles.textMargin]} testID="mockTranslationTest">
         {t('mockTranslationTest')}
       </Text>
 
@@ -105,5 +109,10 @@ const styles = StyleSheet.create({
     marginRight: 10,
     borderColor: 'white',
     borderWidth: 2,
+  },
+  text: {},
+  textMargin: {
+    marginTop: 20,
+    fontSize: 20,
   },
 });

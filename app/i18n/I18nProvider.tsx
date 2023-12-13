@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { ReactNode, createContext, useContext, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 

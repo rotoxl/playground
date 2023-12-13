@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { I18nProvider } from '@app/i18n/I18nProvider';
 import { RenderOptions, render } from '@testing-library/react-native';
 import { ReactNode } from 'react';
