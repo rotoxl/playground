@@ -28,8 +28,14 @@ describe('LocalizationScreen', () => {
 
   it('should have correct number format', () => {
     const { getByTestId } = renderWrapped(<LocalizationScreen />);
-    const formattedMoney = getByTestId('number');
-    expect(formattedMoney).toHaveTextContent('17,542,210.13');
+    const formattedNumber1 = getByTestId('number1');
+    expect(formattedNumber1).toHaveTextContent('17,542,210.13');
+
+    const formattedNumber2 = getByTestId('number2');
+    expect(formattedNumber2).toHaveTextContent('17,542.131');
+
+    const formattedNumber3 = getByTestId('number3');
+    expect(formattedNumber3).toHaveTextContent('29,123');
   });
 
   it('should have correct money format', () => {
@@ -47,6 +53,12 @@ describe('LocalizationScreen', () => {
 
     await waitFor(() => {
       expect(localeLabel).toHaveTextContent(Language.ES);
+    });
+
+    fireEvent.press(getByTestId('changeEN'));
+
+    await waitFor(() => {
+      expect(localeLabel).toHaveTextContent(Language.EN);
     });
   });
 });

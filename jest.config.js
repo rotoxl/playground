@@ -11,25 +11,22 @@ const config = {
   testMatch: ['**/?(*.)+(spec|test).ts?(x)'],
   collectCoverage: true,
   verbose: !process.env.CI,
-  coverageReporters: ['text-summary', 'lcov', 'cobertura'],
+  coverageReporters: ['lcov', ['text', { file: 'coverage.txt' }]],
   moduleDirectories: ['node_modules', 'app'],
-  reporters: process.env.CI
-    ? [
-        'default',
-        [
-          'jest-junit',
-          {
-            suiteName: 'Jest tests',
-            outputName: 'junit.xml',
-            outputDirectory: './coverage',
-            classNameTemplate: '{classname}',
-            titleTemplate: '{title}',
-            suiteNameTemplate: '{filename}',
-          },
-        ],
-      ]
-    : ['default'],
-
+  reporters: [
+    'default',
+    [
+      'jest-junit',
+      {
+        suiteName: 'Jest tests',
+        outputName: 'jest-junit.xml',
+        outputDirectory: './coverage',
+        classNameTemplate: '{classname}',
+        titleTemplate: '{title}',
+        suiteNameTemplate: '{filename}',
+      },
+    ],
+  ],
   globals: {
     __DEV__: true,
   },

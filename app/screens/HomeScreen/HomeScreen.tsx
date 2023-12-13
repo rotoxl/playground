@@ -1,11 +1,13 @@
 import { useNavigation } from '@app/navigation/hooks/useNavigation';
 import { RouteKeys } from '@app/navigation/routes';
+import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback } from 'react';
-import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
+import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 type CaseType = {
   title: string;
+  subtitle: string;
   screenName: RouteKeys;
 };
 
@@ -14,6 +16,7 @@ export const HomeScreen = () => {
   const cases = [
     {
       title: 'Localization',
+      subtitle: 'Internationalization and localization, number and date formatting.',
       screenName: 'LocalizationScreen',
     },
   ] satisfies CaseType[];
@@ -26,33 +29,54 @@ export const HomeScreen = () => {
   );
 
   const listItems = cases.map((item) => (
-    <Pressable key={item.title} onPress={handleNavigateCase(item.screenName)} style={styles.square}>
-      <Text>{item.title}</Text>
+    <Pressable key={item.title} onPress={handleNavigateCase(item.screenName)}>
+      <View style={styles.itemContainer}>
+        <View>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.subtitle} numberOfLines={2}>
+            {item.subtitle}
+          </Text>
+        </View>
+
+        <MIcon name="chevron-right" size={25} />
+      </View>
     </Pressable>
   ));
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.fullScreen}>
       <StatusBar style="auto" />
-      <ScrollView contentContainerStyle={styles.container}>{listItems}</ScrollView>
+      <View style={styles.rootContainer}>
+        <ScrollView contentContainerStyle={styles.fullScreen}>{listItems}</ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
-  container: {
+  fullScreen: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  square: {
+  rootContainer: {
     flex: 1,
-    maxHeight: 40,
-    backgroundColor: 'silver',
-    justifyContent: 'center',
+    backgroundColor: '#F0F0F0',
+  },
+  itemContainer: {
+    minHeight: 60,
+    backgroundColor: 'white',
     margin: 10,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: 'black',
+    paddingVertical: 10,
+    paddingLeft: 20,
+    paddingRight: 10,
+
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '500',
+  },
+  subtitle: {
+    fontSize: 14,
   },
 });

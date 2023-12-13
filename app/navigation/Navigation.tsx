@@ -25,8 +25,20 @@ const Stack = createStackNavigator<RouteParamsList>();
 export const RootNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: true }}>
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="LocalizationScreen" component={LocalizationScreen} />
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          title: 'Awesome experiments',
+        }}
+      />
+      <Stack.Screen
+        name="LocalizationScreen"
+        component={LocalizationScreen}
+        options={{
+          title: 'Localization experiment',
+        }}
+      />
     </Stack.Navigator>
   );
 };

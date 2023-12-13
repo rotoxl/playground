@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { TranslationId } from '@app/i18n/constants';
 import * as Translations from '@app/i18n/useTranslations';
 
@@ -21,8 +23,9 @@ export const mockTranslations = () => {
     }));
 
   const expectText = (actual: any, key: string, values?: any) => {
+    // console.log('expectText', actual, key, values, interceptedValues?.[key]);
     expect(actual).toHaveTextContent(key);
-    if (values) {
+    if (interceptedValues?.[key]) {
       expect(interceptedValues?.[key]).toStrictEqual(values);
     }
   };
