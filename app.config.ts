@@ -25,6 +25,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     infoPlist: {
       CFBundleAllowMixedLocalizations: true,
     },
+    bundleIdentifier: 'com.example.app',
   },
   android: {
     adaptiveIcon: {

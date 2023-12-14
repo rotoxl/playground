@@ -19,6 +19,11 @@ export const HomeScreen = () => {
       subtitle: 'Internationalization and localization, number and date formatting.',
       screenName: 'LocalizationScreen',
     },
+    {
+      title: 'Unistyles',
+      subtitle: 'Breakpoints, colors, typography, spacing and more.',
+      screenName: 'UnistylesScreen',
+    },
   ] satisfies CaseType[];
 
   const handleNavigateCase = useCallback(
@@ -31,7 +36,7 @@ export const HomeScreen = () => {
   const listItems = cases.map((item) => (
     <Pressable key={item.title} onPress={handleNavigateCase(item.screenName)}>
       <View style={styles.itemContainer}>
-        <View>
+        <View style={styles.fullScreen}>
           <Text style={styles.title}>{item.title}</Text>
           <Text style={styles.subtitle} numberOfLines={2}>
             {item.subtitle}
@@ -52,6 +57,7 @@ export const HomeScreen = () => {
     </SafeAreaView>
   );
 };
+
 const styles = StyleSheet.create({
   fullScreen: {
     flex: 1,
@@ -63,7 +69,8 @@ const styles = StyleSheet.create({
   itemContainer: {
     minHeight: 60,
     backgroundColor: 'white',
-    margin: 10,
+    marginHorizontal: 10,
+    marginTop: 10,
     paddingVertical: 10,
     paddingLeft: 20,
     paddingRight: 10,

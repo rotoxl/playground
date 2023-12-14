@@ -1,5 +1,6 @@
 import { HomeScreen } from '@app/screens/HomeScreen/HomeScreen';
 import { LocalizationScreen } from '@app/screens/LocalizationScreen/LocalizationScreen';
+import { UnistylesScreen } from '@app/screens/UnistylesScreen/UnistylesScreen';
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ColorSchemeName } from 'react-native';
@@ -37,6 +38,13 @@ export const RootNavigator = () => {
         component={LocalizationScreen}
         options={{
           title: 'Localization experiment',
+        }}
+      />
+      <Stack.Screen
+        name="UnistylesScreen"
+        component={UnistylesScreen}
+        options={{
+          title: 'Unistyles experiment',
         }}
       />
     </Stack.Navigator>
