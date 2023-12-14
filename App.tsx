@@ -4,7 +4,6 @@ import { setupUnistyles } from '@app/styles/styles';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback } from 'react';
-import { useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { enableScreens } from 'react-native-screens';
 
@@ -12,7 +11,6 @@ enableScreens();
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const colorScheme = useColorScheme();
   setupUnistyles();
 
   const onLayoutRootView = useCallback(async () => {
@@ -23,7 +21,7 @@ export default function App() {
     <SafeAreaProvider onLayout={onLayoutRootView}>
       <StatusBar />
       <I18nProvider>
-        <Navigation colorScheme={colorScheme} />
+        <Navigation />
       </I18nProvider>
     </SafeAreaProvider>
   );
