@@ -5,3 +5,4 @@ This is a playground app with:
 - [in progress] Jest and Maestro
 - ✅ `react-navigation`
 - ✅ `i18n`
+- ✅ `Unistyles` (requires prebuild `npx expo prebuild --clean``)

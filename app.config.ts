@@ -7,7 +7,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   version: '1.0.0',
   orientation: 'portrait',
   icon: './assets/icon.png',
-  userInterfaceStyle: 'light',
+  userInterfaceStyle: 'automatic',
   jsEngine: 'hermes',
   splash: {
     image: './assets/splash.png',
@@ -24,6 +24,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     supportsTablet: true,
     infoPlist: {
       CFBundleAllowMixedLocalizations: true,
+      UIBackgroundModes: ['location', 'fetch', 'remote-notification'],
     },
     bundleIdentifier: 'com.example.app',
   },
@@ -32,6 +33,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#ffffff',
     },
+    package: 'com.example.app',
   },
   web: {
     favicon: './assets/favicon.png',

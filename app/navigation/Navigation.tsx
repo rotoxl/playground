@@ -3,21 +3,30 @@ import { LocalizationScreen } from '@app/screens/LocalizationScreen/Localization
 import { UnistylesScreen } from '@app/screens/UnistylesScreen/UnistylesScreen';
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ColorSchemeName } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { UnistylesRuntime, useStyles } from 'react-native-unistyles';
 
 import { navigationRef } from './constants';
 import { useNavigationStateListener } from './hooks/useNavigationStateListener';
 import { RouteParamsList } from './routes';
 
-export const Navigation = ({ colorScheme }: { colorScheme: ColorSchemeName }) => {
+export const Navigation = () => {
+  useStyles(); //necessary to trigger re-render at navigation level
   const navigationStateListener = useNavigationStateListener();
+
+  const themeName = UnistylesRuntime.themeName;
+  const isDarkTheme = themeName === 'dark';
+
   return (
-    <NavigationContainer
-      ref={navigationRef}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-      onStateChange={navigationStateListener}>
-      <RootNavigator />
-    </NavigationContainer>
+    <>
+      <StatusBar style={!isDarkTheme ? 'dark' : 'light'} />
+      <NavigationContainer
+        ref={navigationRef}
+        theme={isDarkTheme ? DarkTheme : DefaultTheme}
+        onStateChange={navigationStateListener}>
+        <RootNavigator />
+      </NavigationContainer>
+    </>
   );
 };
 

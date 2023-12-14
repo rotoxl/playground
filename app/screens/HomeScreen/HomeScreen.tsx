@@ -3,7 +3,8 @@ import { RouteKeys } from '@app/navigation/routes';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback } from 'react';
-import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 type CaseType = {
   title: string;
@@ -13,6 +14,8 @@ type CaseType = {
 
 export const HomeScreen = () => {
   const { navigateMain } = useNavigation();
+  const { styles, theme } = useStyles(stylesheet);
+
   const cases = [
     {
       title: 'Localization',
@@ -43,14 +46,13 @@ export const HomeScreen = () => {
           </Text>
         </View>
 
-        <MIcon name="chevron-right" size={25} />
+        <MIcon name="chevron-right" size={25} color={theme.colors.typography} />
       </View>
     </Pressable>
   ));
 
   return (
     <SafeAreaView style={styles.fullScreen}>
-      <StatusBar style="auto" />
       <View style={styles.rootContainer}>
         <ScrollView contentContainerStyle={styles.fullScreen}>{listItems}</ScrollView>
       </View>
@@ -58,22 +60,24 @@ export const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const stylesheet = createStyleSheet((theme) => ({
   fullScreen: {
     flex: 1,
   },
   rootContainer: {
     flex: 1,
-    backgroundColor: '#F0F0F0',
+    backgroundColor: theme.colors.window,
   },
   itemContainer: {
     minHeight: 60,
-    backgroundColor: 'white',
-    marginHorizontal: 10,
-    marginTop: 10,
-    paddingVertical: 10,
-    paddingLeft: 20,
-    paddingRight: 10,
+    backgroundColor: theme.colors.background,
+
+    marginHorizontal: theme.margins.lg,
+    marginTop: theme.margins.lg,
+
+    paddingVertical: theme.margins.lg,
+    paddingLeft: theme.margins.xl,
+    paddingRight: theme.margins.lg,
 
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -82,8 +86,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: '500',
+    color: theme.colors.typography,
   },
   subtitle: {
     fontSize: 14,
+    color: theme.colors.typography,
   },
-});
+}));

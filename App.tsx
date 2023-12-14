@@ -1,5 +1,6 @@
 import { I18nProvider } from '@app/i18n/I18nProvider';
 import { Navigation } from '@app/navigation/Navigation';
+import { setupUnistyles } from '@app/styles/styles';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback } from 'react';
@@ -12,6 +13,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const colorScheme = useColorScheme();
+  setupUnistyles();
 
   const onLayoutRootView = useCallback(async () => {
     await SplashScreen.hideAsync();
