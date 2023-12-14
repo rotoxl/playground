@@ -1,7 +1,6 @@
 import { useNavigation } from '@app/navigation/hooks/useNavigation';
 import { RouteKeys } from '@app/navigation/routes';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
-import { StatusBar } from 'expo-status-bar';
 import { useCallback } from 'react';
 import { Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
