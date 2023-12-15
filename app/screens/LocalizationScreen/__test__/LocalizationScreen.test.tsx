@@ -9,7 +9,6 @@ import { UnistylesTheme } from 'react-native-unistyles/lib/typescript/src/types'
 
 import { LocalizationScreen } from '../LocalizationScreen';
 
-jest.mock('@app/styles/styles', () => ({}));
 jest.mock('react-native-unistyles', () => {
   let mockInterceptedStyleSheet: Record<string, any> = {};
 
