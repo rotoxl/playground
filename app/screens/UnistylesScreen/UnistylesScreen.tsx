@@ -12,6 +12,7 @@ export const UnistylesScreen = () => {
     const variant = theme.margins[breakpoint as unknown as Step];
     return (
       <View
+        testID={breakpoint}
         key={variant}
         style={[
           styles.box,
@@ -30,13 +31,18 @@ export const UnistylesScreen = () => {
     <SafeAreaView style={styles.window}>
       {marginVariants}
       <View style={styles.toolbar}>
+        <Text testID="currentTheme" style={styles.themeName}>
+          {themeName}
+        </Text>
         <RoundButton
+          testID="changeTheme-light"
           onPress={() => UnistylesRuntime.setTheme('light')}
           isPressed={themeName === 'light'}>
           <View style={[styles.buttonRound, styles.buttonLight]} />
         </RoundButton>
 
         <RoundButton
+          testID="changeTheme-dark"
           onPress={() => UnistylesRuntime.setTheme('dark')}
           isPressed={themeName === 'dark'}>
           <View style={[styles.buttonRound, styles.buttonDark]} />
@@ -68,6 +74,13 @@ const stylesheet = createStyleSheet((theme) => ({
     position: 'absolute',
     right: 30,
     bottom: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  themeName: {
+    color: theme.colors.typography,
+    fontSize: 20,
+    marginRight: 10,
   },
   buttonRound: {
     width: 50,
