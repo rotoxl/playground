@@ -27,7 +27,7 @@ export const LocalizationScreen = () => {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1, paddingHorizontal: 10 }}>
+    <SafeAreaView style={styles.rootView}>
       <Text style={styles.text}>
         Current lang: <Text testID="currentLang">{locale}</Text>
       </Text>
@@ -79,13 +79,19 @@ export const LocalizationScreen = () => {
       </Text>
 
       <View style={styles.toolbar}>
-        <RoundButton onPress={() => setLocale(Language.EN)} isPressed={locale === Language.EN}>
+        <RoundButton
+          onPress={() => setLocale(Language.EN)}
+          isPressed={locale === Language.EN}
+          testID="changeEN">
           <View style={[styles.buttonRound, locale === Language.EN && styles.buttonPressed]}>
             <Text>{Language.EN}</Text>
           </View>
         </RoundButton>
 
-        <RoundButton onPress={() => setLocale(Language.ES)} isPressed={locale === Language.ES}>
+        <RoundButton
+          onPress={() => setLocale(Language.ES)}
+          isPressed={locale === Language.ES}
+          testID="changeES">
           <View style={[styles.buttonRound, locale === Language.ES && styles.buttonPressed]}>
             <Text>{Language.ES}</Text>
           </View>
@@ -95,31 +101,37 @@ export const LocalizationScreen = () => {
   );
 };
 
-const stylesheet = createStyleSheet((theme) => ({
-  buttonRound: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    borderWidth: 0,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonPressed: {
-    backgroundColor: 'silver',
-  },
-  text: {
-    color: theme.colors.typography,
-  },
-  textMargin: {
-    marginTop: 20,
-    fontSize: 20,
-    color: theme.colors.typography,
-  },
-  toolbar: {
-    flexDirection: 'row',
-    position: 'absolute',
-    right: 30,
-    bottom: 50,
-  },
-}));
+const stylesheet = createStyleSheet((theme) => {
+  return {
+    rootView: {
+      flex: 1,
+      paddingHorizontal: 10,
+    },
+    buttonRound: {
+      width: 50,
+      height: 50,
+      borderRadius: 25,
+      borderWidth: 0,
+      backgroundColor: 'white',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    buttonPressed: {
+      backgroundColor: 'silver',
+    },
+    text: {
+      color: theme.colors.typography,
+    },
+    textMargin: {
+      marginTop: 20,
+      fontSize: 20,
+      color: theme.colors.typography,
+    },
+    toolbar: {
+      flexDirection: 'row',
+      position: 'absolute',
+      right: 30,
+      bottom: 50,
+    },
+  };
+});

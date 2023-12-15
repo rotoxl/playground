@@ -3,9 +3,30 @@ import '@testing-library/jest-native/extend-expect';
 import { Language } from '@app/i18n/constants';
 import { mockTranslations } from '@app/testing/mockTranslations';
 import { renderWrapped } from '@app/testing/renderWrapped';
+import { lightTheme as mockLightTheme } from '@app/themes/themes';
 import { fireEvent, waitFor } from '@testing-library/react-native';
+import { UnistylesTheme } from 'react-native-unistyles/lib/typescript/src/types';
 
-import { LocalizationScreen } from '../LocalizationScreen'; // adjust this import according to your file structure
+import { LocalizationScreen } from '../LocalizationScreen';
+
+jest.mock('@app/styles/styles', () => ({}));
+jest.mock('react-native-unistyles', () => {
+  let mockInterceptedStyleSheet: Record<string, any> = {};
+
+  return {
+    createStyleSheet: (callback: (theme: any) => UnistylesTheme) => {
+      mockInterceptedStyleSheet = callback(mockLightTheme);
+    },
+    useStyles: () => {
+      return {
+        styles: {
+          customStyle: 'hello',
+          ...mockInterceptedStyleSheet,
+        },
+      };
+    },
+  };
+});
 
 const { expectText } = mockTranslations();
 

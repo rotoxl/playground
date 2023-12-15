@@ -1,6 +1,6 @@
 import { I18nProvider } from '@app/i18n/I18nProvider';
 import { Navigation } from '@app/navigation/Navigation';
-import { setupUnistyles } from '@app/styles/styles';
+import { setupUnistyles } from '@app/themes/setup';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback } from 'react';

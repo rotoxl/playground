@@ -5,13 +5,14 @@ type RoundButtonProps = {
   onPress: () => void;
   isPressed: boolean;
   children: React.ReactNode;
+  testID?: string;
 };
 
-export const RoundButton = ({ onPress, isPressed, children }: RoundButtonProps) => {
+export const RoundButton = ({ onPress, isPressed, children, testID }: RoundButtonProps) => {
   const { styles } = useStyles(stylesheet);
 
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} testID={testID}>
       <View style={[styles.buttonRound, isPressed && styles.buttonPressed]}>{children}</View>
     </Pressable>
   );

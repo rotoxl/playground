@@ -1,4 +1,4 @@
-import { Step } from '@app/styles/styles';
+import { Step } from '@app/themes/setup';
 import { RoundButton } from '@app/ui/buttons/RoundButton/RoundButton';
 import { View, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
