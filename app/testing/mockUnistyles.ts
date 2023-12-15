@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { lightTheme as mockLightTheme, darkTheme as mockDarkTheme } from '@app/themes/themes';
 import { UnistylesTheme } from 'react-native-unistyles/lib/typescript/src/types';
 

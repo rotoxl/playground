@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 const mockNavigate = jest.fn();
 const mockGoback = jest.fn();
 const mockReset = jest.fn();
