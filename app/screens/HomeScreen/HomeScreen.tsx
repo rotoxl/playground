@@ -36,7 +36,7 @@ export const HomeScreen = () => {
   );
 
   const listItems = cases.map((item) => (
-    <Pressable key={item.title} onPress={handleNavigateCase(item.screenName)}>
+    <Pressable key={item.title} testID={item.title} onPress={handleNavigateCase(item.screenName)}>
       <View style={styles.itemContainer}>
         <View style={styles.fullScreen}>
           <Text style={styles.title}>{item.title}</Text>

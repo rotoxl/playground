@@ -2,9 +2,9 @@ import { lightTheme as mockLightTheme, darkTheme as mockDarkTheme } from '@app/t
 import { UnistylesTheme } from 'react-native-unistyles/lib/typescript/src/types';
 
 let mockCurrentTheme = 'light';
-const mockSetTheme = (theme: 'light' | 'dark') => {
+const mockSetTheme = jest.fn((theme: 'light' | 'dark') => {
   mockCurrentTheme = theme;
-};
+});
 
 jest.mock('react-native-unistyles', () => {
   let interceptedStyleSheet: Record<string, any> = {};
@@ -17,15 +17,17 @@ jest.mock('react-native-unistyles', () => {
     useStyles: () => {
       return {
         styles: interceptedStyleSheet,
-        theme: mockCurrentTheme,
+        theme: mockCurrentTheme === 'light' ? mockLightTheme : mockDarkTheme,
       };
     },
     UnistylesRuntime: {
       setTheme: mockSetTheme,
+      themeName: mockCurrentTheme,
     },
   };
 });
 
 export const mockUnistyles = () => ({
   mockSetTheme,
+  mockGetCurrentTheme: () => mockCurrentTheme,
 });
