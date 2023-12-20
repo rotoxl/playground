@@ -28,6 +28,7 @@ const stylesheet = createStyleSheet((theme) => ({
     marginRight: 10,
     borderColor: 'white',
     borderWidth: 2,
+    overflow: 'hidden',
   },
   buttonPressed: {
     borderColor: 'silver',

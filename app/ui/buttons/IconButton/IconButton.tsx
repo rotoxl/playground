@@ -1,13 +1,14 @@
+import { buildTestID } from '@app/testing/buildTestID';
+import { TestProps } from '@app/testing/testProps';
 import { ColorValue, Pressable, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 type IconButtonProps = {
   backgroundColor?: ColorValue;
   borderColor?: ColorValue;
-  testID?: string;
   onPress?: () => void;
   children: React.ReactNode;
-};
+} & TestProps;
 
 export const IconButton = ({
   backgroundColor,
@@ -21,7 +22,8 @@ export const IconButton = ({
   return (
     <Pressable onPress={onPress} testID={testID}>
       <View
-        style={[styles.button, { borderColor: borderColor ?? backgroundColor, backgroundColor }]}>
+        style={[styles.button, { borderColor: borderColor ?? backgroundColor, backgroundColor }]}
+        testID={buildTestID(testID, 'view')}>
         {children}
       </View>
     </Pressable>

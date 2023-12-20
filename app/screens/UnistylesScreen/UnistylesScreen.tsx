@@ -1,6 +1,7 @@
 import { Step } from '@app/themes/themes';
 import { RoundButton } from '@app/ui/buttons/RoundButton/RoundButton';
-import { View, Text } from 'react-native';
+import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
+import { View, Text, StyleSheet } from 'react-native';
 import { UnistylesRuntime, createStyleSheet, useStyles } from 'react-native-unistyles';
 
 export const UnistylesScreen = () => {
@@ -37,14 +38,14 @@ export const UnistylesScreen = () => {
           testID="changeTheme-light"
           onPress={() => UnistylesRuntime.setTheme('light')}
           isPressed={themeName === 'light'}>
-          <View style={[styles.buttonRound, styles.buttonLight]} />
+          <View style={[styles.button, styles.buttonLight]} />
         </RoundButton>
 
         <RoundButton
           testID="changeTheme-dark"
           onPress={() => UnistylesRuntime.setTheme('dark')}
           isPressed={themeName === 'dark'}>
-          <View style={[styles.buttonRound, styles.buttonDark]} />
+          <View style={[styles.button, styles.buttonDark]} />
         </RoundButton>
       </View>
     </View>
@@ -82,11 +83,8 @@ const stylesheet = createStyleSheet((theme) => ({
     fontSize: 20,
     marginRight: 10,
   },
-  buttonRound: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    borderWidth: 2,
+  button: {
+    ...StyleSheet.absoluteFillObject,
   },
   buttonLight: {
     backgroundColor: 'white',
