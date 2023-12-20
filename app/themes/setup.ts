@@ -12,6 +12,7 @@ declare module 'react-native-unistyles' {
   export interface UnistylesBreakpoints extends AppBreakpoints {}
   export interface UnistylesThemes extends AppThemes {}
 }
+
 export const setupUnistyles = () => {
   UnistylesRegistry.addBreakpoints(breakpoints)
     .addThemes({
@@ -20,6 +21,5 @@ export const setupUnistyles = () => {
     })
     .addConfig({
       adaptiveThemes: true,
-      initialTheme: 'light',
     });
 };
