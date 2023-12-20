@@ -9,5 +9,19 @@
   "NSUserTrackingUsageDescription": "This data will be used to give you a better and more tailored experience",
 
   "hello": "hello dear {friend}!",
-  "mockTranslationTest": "This is a mock translation test"
+  "mockTranslationTest": "This is a mock translation test",
+
+  "role.company.size": "{size} employees",
+  "button.easyApply": "Easy Apply",
+  "button.save": "Save",
+
+  "role.skills.list": "Skills: {list}",
+  "role.skills.more": "+{number} more",
+
+  "signin.title": "Sign in",
+  "signin.signinWithGoogle": "Continue with Google",
+  "signin.signinOtherOptions": "See other options",
+  "signin.disclaimer": "By continuing, you acknowledge that you have read and understood, and agree to our {terms} and {privacyPolicy}",
+  "signin.terms": "Terms of Service",
+  "signin.privacyPolicy": "Privacy Policy"
 }

@@ -9,5 +9,12 @@
   "NSUserTrackingUsageDescription": "Necesario para proporcionarte una experiencia más rica",
 
   "hello": "Hola {friend}!",
-  "mockTranslationTest": "Esto es una prueba del mock de traducción"
+  "mockTranslationTest": "Esto es una prueba del mock de traducción",
+
+  "role.company.size": "{size} empleados",
+  "button.easyApply": "Easy Apply",
+  "button.save": "Guardar",
+
+  "role.skills.list": "Skills: {list}",
+  "role.skills.more": "+{number} más"
 }
