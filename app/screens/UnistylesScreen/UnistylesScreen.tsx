@@ -1,7 +1,6 @@
 import { Step } from '@app/themes/themes';
 import { RoundButton } from '@app/ui/buttons/RoundButton/RoundButton';
 import { View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { UnistylesRuntime, createStyleSheet, useStyles } from 'react-native-unistyles';
 
 export const UnistylesScreen = () => {
@@ -28,7 +27,7 @@ export const UnistylesScreen = () => {
   });
 
   return (
-    <SafeAreaView style={styles.window}>
+    <View style={styles.window}>
       {marginVariants}
       <View style={styles.toolbar}>
         <Text testID="currentTheme" style={styles.themeName}>
@@ -48,37 +47,38 @@ export const UnistylesScreen = () => {
           <View style={[styles.buttonRound, styles.buttonDark]} />
         </RoundButton>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const stylesheet = createStyleSheet((theme) => ({
   window: {
     flex: 1,
-    paddingHorizontal: 10,
+    padding: 10,
     backgroundColor: theme.colors.window,
   },
   box: {
-    border: theme.colors.typography,
+    border: theme.colors.typography_main,
     backgroundColor: theme.colors.background,
     paddingVertical: theme.margins.lg,
-    margin: theme.margins.md,
+    marginLeft: theme.margins.md,
+    marginTop: theme.margins.sm,
     borderRadius: theme.margins.sm,
   },
   boxText: {
-    color: theme.colors.typography,
+    color: theme.colors.typography_main,
   },
   row: {},
   toolbar: {
-    flexDirection: 'row',
     position: 'absolute',
     right: 30,
+    flexDirection: 'row',
     bottom: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
   themeName: {
-    color: theme.colors.typography,
+    color: theme.colors.typography_main,
     fontSize: 20,
     marginRight: 10,
   },
