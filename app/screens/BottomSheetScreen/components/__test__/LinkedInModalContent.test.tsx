@@ -1,7 +1,7 @@
 import { reactNativeRole } from '@app/screens/BottomSheetScreen/mocks';
 import { render } from '@testing-library/react-native';
 
-import { LinkedInModalContent } from '../LinkedInModalContent'; // adjust this import according to your file structure
+import { LinkedInModalContent } from '../LinkedInModalContent';
 
 describe('LinkedInModalContent', () => {
   test('renders all blocks', () => {
