@@ -21,7 +21,7 @@
   "signin.title": "Sign in",
   "signin.signinWithGoogle": "Continue with Google",
   "signin.signinOtherOptions": "See other options",
-  "signin.disclaimer": "By continuing, you acknowledge that you have read and understood, and agree to our {terms} and {privacyPolicy}",
+  "signin.disclaimer": "By continuing, you acknowledge that you have agree to our {terms} and {privacyPolicy}",
   "signin.terms": "Terms of Service",
   "signin.privacyPolicy": "Privacy Policy"
 }

@@ -1,14 +1,8 @@
-import { MockComponent } from '@app/testing/MockComponent';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import { render, fireEvent } from '@testing-library/react-native';
 import { Text } from 'react-native';
 
 import { IconButton } from '../IconButton';
-
-jest.mock('@expo/vector-icons/MaterialCommunityIcons', () => ({
-  __esModule: true,
-  default: MockComponent,
-}));
 
 describe('IconButton', () => {
   test('renders button with text', () => {

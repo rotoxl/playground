@@ -1,4 +1,3 @@
-import { MockComponent } from '@app/testing/MockComponent';
 import { colors } from '@app/themes/themes';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import { render, fireEvent } from '@testing-library/react-native';
@@ -6,10 +5,6 @@ import { Text } from 'react-native';
 
 import { RoundButton } from '../RoundButton';
 
-jest.mock('@expo/vector-icons/MaterialCommunityIcons', () => ({
-  __esModule: true,
-  default: MockComponent,
-}));
 const onPressMock = jest.fn();
 
 describe('RoundButton', () => {

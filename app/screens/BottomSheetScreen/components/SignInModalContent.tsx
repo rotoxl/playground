@@ -15,6 +15,7 @@ export const SignInModalContent = () => {
     Alert.alert('Button click', desc, [{ text: 'OK' }]);
   };
 
+  const Footer = () => <SignInModalFooter />;
   const Content = useCallback(
     () => (
       <>
@@ -49,14 +50,15 @@ export const SignInModalContent = () => {
   return (
     <View style={styles.rootContainer}>
       <Content />
+      <Footer />
     </View>
   );
 };
 
 export const SignInModalFooter = () => {
+  const { bottom } = useSafeAreaInsets();
   const { styles } = useStyles(stylesheet);
   const { t } = useTranslations();
-  const { bottom } = useSafeAreaInsets();
 
   const handleOpenLink = (link: string) => () => {
     Alert.alert('Open link', link, [{ text: 'OK' }]);
@@ -91,9 +93,8 @@ const stylesheet = createStyleSheet((theme) => ({
     paddingHorizontal: theme.margins.lg,
   },
   bodyContainer: {
-    height: '100%',
     alignContent: 'center',
-    marginTop: theme.margins.lg,
+    paddingBottom: theme.margins.xl,
   },
   itemContainer: {
     marginVertical: theme.margins.sm,
@@ -120,8 +121,7 @@ const stylesheet = createStyleSheet((theme) => ({
     marginTop: theme.margins.xl,
   },
   footer: {
-    backgroundColor: theme.colors.window,
+    // backgroundColor: theme.colors.window,
     paddingHorizontal: theme.margins.lg,
-    marginBottom: theme.margins.md,
   },
 }));

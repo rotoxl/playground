@@ -1,13 +1,10 @@
 import {
+  SNAP_POINTS_DYNAMIC,
   SNAP_POINTS_MEDIUM_FULL_HEIGHT,
-  SNAP_POINTS_SMALL,
   bottomSheetModalRef,
 } from '@app/modal/BottomSheetModal';
 import { LinkedInModalContent } from '@app/screens/BottomSheetScreen/components/LinkedInModalContent';
-import {
-  SignInModalContent,
-  SignInModalFooter,
-} from '@app/screens/BottomSheetScreen/components/SignInModalContent';
+import { SignInModalContent } from '@app/screens/BottomSheetScreen/components/SignInModalContent';
 import { reactNativeRole } from '@app/screens/BottomSheetScreen/mocks';
 import { useCallback } from 'react';
 import { Dimensions, Pressable, Text, View } from 'react-native';
@@ -43,8 +40,7 @@ export const BottomSheetScreen = () => {
   const handleOpenSmallModal = useCallback(() => {
     bottomSheetModalRef.current?.open({
       content: <SignInModalContent />,
-      footer: <SignInModalFooter />,
-      snapPoints: SNAP_POINTS_SMALL,
+      snapPoints: SNAP_POINTS_DYNAMIC,
     });
   }, []);
 
@@ -52,12 +48,12 @@ export const BottomSheetScreen = () => {
     <View style={styles.rootContainer}>
       <Card
         title="Bottom Sheet"
-        text="LinkedIn Style bottom sheet"
+        text="fixedHeight+fullScreen bottom sheet"
         onPress={handleOpenLinkedInModal}
       />
       <Card
         title="Bottom Sheet"
-        text="Small bottom sheet, Sign in dialog"
+        text="Dynamic height bottom sheet, Sign in dialog"
         onPress={handleOpenSmallModal}
       />
     </View>

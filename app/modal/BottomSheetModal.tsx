@@ -19,7 +19,6 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 type OpenModalHandler = {
   content: ReactNode;
-  footer?: ReactNode;
   title?: string;
   snapPoints?: string[];
 };
@@ -31,14 +30,13 @@ export type ModalHandler = {
 
 export const bottomSheetModalRef = createRef<ModalHandler>();
 
-export const SNAP_POINTS_SMALL = ['30%'];
+export const SNAP_POINTS_DYNAMIC = ['CONTENT_HEIGHT'];
 export const SNAP_POINTS_MEDIUM = ['65%'];
 export const SNAP_POINTS_MEDIUM_FULL_HEIGHT = [...SNAP_POINTS_MEDIUM, '100%'];
 
 export const BottomSheetModal = () => {
   const [modalData, setModalData] = useState<OpenModalHandler>({
     content: <></>,
-    footer: <></>,
     title: undefined,
     snapPoints: SNAP_POINTS_MEDIUM,
   });
@@ -50,8 +48,8 @@ export const BottomSheetModal = () => {
   useImperativeHandle(
     bottomSheetModalRef,
     () => ({
-      open: ({ content, snapPoints = SNAP_POINTS_MEDIUM, title, footer }: OpenModalHandler) => {
-        setModalData({ content, snapPoints, title, footer });
+      open: ({ content, snapPoints = SNAP_POINTS_MEDIUM, title }: OpenModalHandler) => {
+        setModalData({ content, snapPoints, title });
         setIndex(0);
         internalRef.current?.present?.();
       },
@@ -98,16 +96,18 @@ export const BottomSheetModal = () => {
     );
   };
 
+  const isContentDynamic = modalData.snapPoints?.includes('CONTENT_HEIGHT');
+
   return (
     <NativeBottomSheetModal
       ref={internalRef}
       index={index}
       onChange={setIndex}
-      snapPoints={modalData.snapPoints}
+      snapPoints={isContentDynamic ? [] : modalData.snapPoints}
+      enableDynamicSizing={isContentDynamic}
       backgroundStyle={styles.modalBackground}
       backdropComponent={renderBackdrop}
       handleComponent={renderHandleOrToolbar}
-      footerComponent={() => modalData.footer}
       style={styles.modal}
       onAnimate={(_fromIndex, toIndex) => setIndex(toIndex)}>
       <BottomSheetScrollView>{modalData.content ?? <></>}</BottomSheetScrollView>
