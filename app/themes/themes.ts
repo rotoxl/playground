@@ -46,7 +46,7 @@ const margins = {
 } as const;
 
 // https://chir.ag/projects/name-that-color
-const colors = {
+export const colors = {
   mineralGreen: '#456A53',
   synbad: '#9DD2C6',
   abbey: '#525D5F',

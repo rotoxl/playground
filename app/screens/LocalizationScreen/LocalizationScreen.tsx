@@ -78,22 +78,24 @@ export const LocalizationScreen = () => {
       </Text>
 
       <View style={styles.toolbar}>
+        <Text testID="currentTheme" style={styles.themeName}>
+          current lang: {locale}
+        </Text>
+
         <RoundButton
           onPress={() => setLocale(Language.EN)}
           isPressed={locale === Language.EN}
-          testID="changeEN">
-          <View style={[styles.buttonRound, locale === Language.EN && styles.buttonPressed]}>
-            <Text>{Language.EN}</Text>
-          </View>
+          testID="changeEN"
+          backgroundColor="white">
+          <Text>{Language.EN.toUpperCase()}</Text>
         </RoundButton>
-
+        <View style={styles.buttonSeparator} />
         <RoundButton
           onPress={() => setLocale(Language.ES)}
           isPressed={locale === Language.ES}
-          testID="changeES">
-          <View style={[styles.buttonRound, locale === Language.ES && styles.buttonPressed]}>
-            <Text>{Language.ES}</Text>
-          </View>
+          testID="changeES"
+          backgroundColor="white">
+          <Text>{Language.ES.toUpperCase()}</Text>
         </RoundButton>
       </View>
     </View>
@@ -108,17 +110,9 @@ const stylesheet = createStyleSheet((theme) => {
       padding: theme.margins.lg,
       justifyContent: 'flex-start',
     },
-    buttonRound: {
-      width: 50,
-      height: 50,
-      borderRadius: 25,
-      borderWidth: 0,
-      backgroundColor: 'white',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    buttonPressed: {
-      backgroundColor: 'silver',
+
+    buttonSeparator: {
+      marginRight: theme.margins.sm,
     },
     text: {
       color: theme.colors.typography_main,
@@ -133,6 +127,13 @@ const stylesheet = createStyleSheet((theme) => {
       position: 'absolute',
       right: 30,
       bottom: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    themeName: {
+      color: theme.colors.typography_main,
+      fontSize: 20,
+      marginRight: 10,
     },
   };
 });

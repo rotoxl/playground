@@ -55,7 +55,6 @@ export const BottomSheetScreen = () => {
         text="LinkedIn Style bottom sheet"
         onPress={handleOpenLinkedInModal}
       />
-
       <Card
         title="Bottom Sheet"
         text="Small bottom sheet, Sign in dialog"

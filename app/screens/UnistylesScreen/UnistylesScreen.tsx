@@ -1,7 +1,6 @@
-import { Step } from '@app/themes/themes';
+import { isStep } from '@app/themes/utils';
 import { RoundButton } from '@app/ui/buttons/RoundButton/RoundButton';
-import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { UnistylesRuntime, createStyleSheet, useStyles } from 'react-native-unistyles';
 
 export const UnistylesScreen = () => {
@@ -9,7 +8,7 @@ export const UnistylesScreen = () => {
   const themeName = UnistylesRuntime.themeName;
 
   const marginVariants = Object.keys(theme.margins).map((breakpoint) => {
-    const variant = theme.margins[breakpoint as unknown as Step];
+    const variant = isStep(breakpoint) ? theme.margins[breakpoint] : theme.margins.sm;
     return (
       <View
         testID={breakpoint}
@@ -34,19 +33,20 @@ export const UnistylesScreen = () => {
         <Text testID="currentTheme" style={styles.themeName}>
           {themeName}
         </Text>
+
         <RoundButton
           testID="changeTheme-light"
           onPress={() => UnistylesRuntime.setTheme('light')}
-          isPressed={themeName === 'light'}>
-          <View style={[styles.button, styles.buttonLight]} />
-        </RoundButton>
-
+          backgroundColor="white"
+          isPressed={themeName === 'light'}
+        />
+        <View style={styles.buttonSeparator} />
         <RoundButton
           testID="changeTheme-dark"
           onPress={() => UnistylesRuntime.setTheme('dark')}
-          isPressed={themeName === 'dark'}>
-          <View style={[styles.button, styles.buttonDark]} />
-        </RoundButton>
+          backgroundColor="black"
+          isPressed={themeName === 'dark'}
+        />
       </View>
     </View>
   );
@@ -83,15 +83,7 @@ const stylesheet = createStyleSheet((theme) => ({
     fontSize: 20,
     marginRight: 10,
   },
-  button: {
-    ...StyleSheet.absoluteFillObject,
-  },
-  buttonLight: {
-    backgroundColor: 'white',
-    borderColor: 'black',
-  },
-  buttonDark: {
-    backgroundColor: 'black',
-    borderColor: 'white',
+  buttonSeparator: {
+    marginRight: theme.margins.sm,
   },
 }));
