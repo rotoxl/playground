@@ -19,7 +19,7 @@ export const LinkedInModalContent = ({ role }: { role: RoleModel }) => {
   const Content = useCallback(
     () => (
       <>
-        <View style={styles.row}>
+        <View style={styles.row} testID="companyHeader">
           <View style={styles.avatar} />
           <View>
             <Text style={styles.body}>{role.company.name}</Text>
@@ -27,7 +27,7 @@ export const LinkedInModalContent = ({ role }: { role: RoleModel }) => {
           </View>
         </View>
 
-        <>
+        <View testID="roleType">
           <View style={[styles.row, styles.spaceTop]}>
             <MIcon name="briefcase-variant" size={20} color={theme.colors.rhino} />
             <Tag text={role.roleInfo.locationType} />
@@ -50,9 +50,9 @@ export const LinkedInModalContent = ({ role }: { role: RoleModel }) => {
               {t('role.skills.list', { list: getSkillList(role.roleInfo.skills) })}
             </Text>
           </View>
-        </>
+        </View>
 
-        <View style={[styles.row, styles.spaceTop]}>
+        <View style={[styles.row, styles.spaceTop]} testID="buttons">
           <IconButton backgroundColor={theme.colors.synbad}>
             <MIcon name="linkedin" size={20} color={theme.colors.white} />
 
@@ -66,7 +66,7 @@ export const LinkedInModalContent = ({ role }: { role: RoleModel }) => {
           </IconButton>
         </View>
 
-        <View style={[styles.spaceTop]}>
+        <View style={[styles.spaceTop]} testID="content">
           {role.roleInfo.content.map((item, index) => {
             return (
               <View key={`chunk-${index}`}>

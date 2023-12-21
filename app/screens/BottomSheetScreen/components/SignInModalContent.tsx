@@ -15,7 +15,6 @@ export const SignInModalContent = () => {
     Alert.alert('Button click', desc, [{ text: 'OK' }]);
   };
 
-  const Footer = () => <SignInModalFooter />;
   const Content = useCallback(
     () => (
       <>
@@ -25,7 +24,8 @@ export const SignInModalContent = () => {
           <View style={styles.itemContainer}>
             <IconButton
               backgroundColor={theme.colors.black}
-              onPress={handleLogin('Continue with Google')}>
+              onPress={handleLogin('Continue with Google')}
+              testID="signInGoogle">
               <MIcon name="google" size={20} color={theme.colors.white} />
 
               <Text style={[styles.buttonText, { color: theme.colors.white }]}>
@@ -37,7 +37,8 @@ export const SignInModalContent = () => {
           <View style={styles.itemContainer}>
             <IconButton
               borderColor={theme.colors.transparent}
-              onPress={handleLogin('See other options')}>
+              onPress={handleLogin('See other options')}
+              testID="signInOthers">
               <Text style={styles.buttonText}>{t('signin.signinOtherOptions')}</Text>
             </IconButton>
           </View>
@@ -50,7 +51,7 @@ export const SignInModalContent = () => {
   return (
     <View style={styles.rootContainer}>
       <Content />
-      <Footer />
+      <SignInModalFooter />
     </View>
   );
 };
@@ -65,17 +66,19 @@ export const SignInModalFooter = () => {
   };
 
   return (
-    <View style={[styles.footer, { bottom }]}>
+    <View style={[styles.footer, { bottom }]} testID="footer">
       <Text style={styles.textDisclaimer}>
         {t('signin.disclaimer', {
           terms: (
             <TextLink
+              testID="termsLink"
               content={t('signin.terms')}
               onPress={handleOpenLink('https://www.mysite.com/terms')}
             />
           ),
           privacyPolicy: (
             <TextLink
+              testID="privacyLink"
               content={t('signin.privacyPolicy')}
               onPress={handleOpenLink('https://www.mysite.com/privacy')}
             />

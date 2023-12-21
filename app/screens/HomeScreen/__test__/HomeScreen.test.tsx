@@ -1,8 +1,7 @@
 import { mockNavigation } from '@app/testing/mockNavigation';
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
-import React from 'react';
 
-import { HomeScreen } from '../HomeScreen'; // adjust this import according to your file structure
+import { HomeScreen } from '../HomeScreen';
 
 const { mockStackActionsPush } = mockNavigation();
 

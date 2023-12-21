@@ -1,7 +1,8 @@
 /* istanbul ignore file */
 
 import { I18nProvider } from '@app/i18n/I18nProvider';
-import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { BottomSheetModal } from '@app/modal/BottomSheetModal';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { RenderOptions, render } from '@testing-library/react-native';
 import { ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
@@ -20,11 +21,12 @@ export const BottomSheetWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView style={StyleSheet.absoluteFill}>
-        <BottomSheetModalProvider>
-          <BottomSheetModal>
-            <I18nProvider>{children}</I18nProvider>
-          </BottomSheetModal>
-        </BottomSheetModalProvider>
+        <I18nProvider>
+          <BottomSheetModalProvider>
+            <BottomSheetModal />
+            {children}
+          </BottomSheetModalProvider>
+        </I18nProvider>
       </GestureHandlerRootView>
     </SafeAreaProvider>
   );
