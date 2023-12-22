@@ -2,7 +2,7 @@ import { useNavigation } from '@app/navigation/hooks/useNavigation';
 import { RouteKeys } from '@app/navigation/routes';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import { useCallback } from 'react';
-import { Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 type CaseType = {
@@ -26,6 +26,11 @@ export const HomeScreen = () => {
       subtitle: 'Breakpoints, colors, typography, spacing and more.',
       screenName: 'UnistylesScreen',
     },
+    {
+      title: 'BottomSheet',
+      subtitle: 'LinkedIn style bottom sheet.',
+      screenName: 'BottomSheetScreen',
+    },
   ] satisfies CaseType[];
 
   const handleNavigateCase = useCallback(
@@ -45,17 +50,15 @@ export const HomeScreen = () => {
           </Text>
         </View>
 
-        <MIcon name="chevron-right" size={25} color={theme.colors.typography} />
+        <MIcon name="chevron-right" size={25} color={theme.colors.typography_terciary} />
       </View>
     </Pressable>
   ));
 
   return (
-    <SafeAreaView style={styles.fullScreen}>
-      <View style={styles.rootContainer}>
-        <ScrollView contentContainerStyle={styles.fullScreen}>{listItems}</ScrollView>
-      </View>
-    </SafeAreaView>
+    <View style={styles.rootContainer}>
+      <ScrollView contentContainerStyle={styles.fullScreen}>{listItems}</ScrollView>
+    </View>
   );
 };
 
@@ -85,10 +88,10 @@ const stylesheet = createStyleSheet((theme) => ({
   title: {
     fontSize: 18,
     fontWeight: '500',
-    color: theme.colors.typography,
+    color: theme.colors.typography_main,
   },
   subtitle: {
     fontSize: 14,
-    color: theme.colors.typography,
+    color: theme.colors.typography_secondary,
   },
 }));

@@ -1,10 +1,15 @@
+import { BottomSheetScreen } from '@app/screens/BottomSheetScreen/BottomSheetScreen';
 import { HomeScreen } from '@app/screens/HomeScreen/HomeScreen';
 import { LocalizationScreen } from '@app/screens/LocalizationScreen/LocalizationScreen';
 import { UnistylesScreen } from '@app/screens/UnistylesScreen/UnistylesScreen';
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  NativeStackNavigationOptions,
+  createNativeStackNavigator,
+} from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { UnistylesRuntime, useStyles } from 'react-native-unistyles';
+import { UnistylesTheme } from 'react-native-unistyles/lib/typescript/src/types';
 
 import { navigationRef } from './constants';
 import { useNavigationStateListener } from './hooks/useNavigationStateListener';
@@ -30,9 +35,10 @@ export const Navigation = () => {
   );
 };
 
-const Stack = createStackNavigator<RouteParamsList>();
+const Stack = createNativeStackNavigator<RouteParamsList>();
 
 export const RootNavigator = () => {
+  const { theme } = useStyles();
   return (
     <Stack.Navigator screenOptions={{ headerShown: true }}>
       <Stack.Screen
@@ -40,6 +46,7 @@ export const RootNavigator = () => {
         component={HomeScreen}
         options={{
           title: 'Awesome experiments',
+          ...screenOptions(theme),
         }}
       />
       <Stack.Screen
@@ -47,6 +54,7 @@ export const RootNavigator = () => {
         component={LocalizationScreen}
         options={{
           title: 'Localization experiment',
+          ...screenOptions(theme),
         }}
       />
       <Stack.Screen
@@ -54,8 +62,23 @@ export const RootNavigator = () => {
         component={UnistylesScreen}
         options={{
           title: 'Unistyles experiment',
+          ...screenOptions(theme),
+        }}
+      />
+      <Stack.Screen
+        name="BottomSheetScreen"
+        component={BottomSheetScreen}
+        options={{
+          title: 'BottomSheet experiment',
+          ...screenOptions(theme),
         }}
       />
     </Stack.Navigator>
   );
 };
+
+const screenOptions = (theme: UnistylesTheme) =>
+  ({
+    headerTintColor: theme.colors.typography_terciary,
+    headerBackTitleVisible: false,
+  }) satisfies NativeStackNavigationOptions;

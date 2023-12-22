@@ -4,7 +4,7 @@ import { TranslationId } from '@app/i18n/constants';
 import { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 
-const FF_LONG_TEST_MODE = true;
+const FF_LONG_TEST_MODE = false;
 
 export const useTranslations = () => {
   const intl = useIntl();

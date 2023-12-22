@@ -1,19 +1,41 @@
-import { Pressable, View } from 'react-native';
+import { buildTestID } from '@app/testing/buildTestID';
+import { TestProps } from '@app/testing/testProps';
+import { colors } from '@app/themes/themes';
+import { ColorValue, Pressable, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 type RoundButtonProps = {
-  onPress: () => void;
-  isPressed: boolean;
-  children: React.ReactNode;
-  testID?: string;
-};
+  backgroundColor?: ColorValue;
+  borderColor?: ColorValue;
+  onPress?: () => void;
+  isPressed?: boolean;
+  children?: React.ReactNode;
+} & TestProps;
 
-export const RoundButton = ({ onPress, isPressed, children, testID }: RoundButtonProps) => {
+export const RoundButton = ({
+  onPress,
+  backgroundColor = colors.synbad,
+  borderColor,
+  isPressed = false,
+  children,
+  testID,
+}: RoundButtonProps) => {
   const { styles } = useStyles(stylesheet);
 
   return (
     <Pressable onPress={onPress} testID={testID}>
-      <View style={[styles.buttonRound, isPressed && styles.buttonPressed]}>{children}</View>
+      <View
+        style={[
+          styles.buttonRound,
+          {
+            backgroundColor,
+            borderColor: borderColor ?? backgroundColor,
+          },
+          isPressed && styles.buttonPressed,
+        ]}
+        testID={buildTestID(testID, 'view')}>
+        {children}
+      </View>
     </Pressable>
   );
 };
@@ -25,9 +47,8 @@ const stylesheet = createStyleSheet((theme) => ({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 10,
-    borderColor: 'white',
     borderWidth: 2,
+    overflow: 'hidden',
   },
   buttonPressed: {
     borderColor: 'silver',
