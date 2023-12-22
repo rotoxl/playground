@@ -1,12 +1,20 @@
+import { buildTestID } from '@app/testing/buildTestID';
+import { TestProps } from '@app/testing/testProps';
 import { Text, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-export const Tag = ({ text }: { text: string }) => {
+type TagProps = {
+  text: string;
+} & TestProps;
+
+export const Tag = ({ text, testID }: TagProps) => {
   const { styles } = useStyles(stylesheet);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text_content}>{text}</Text>
+    <View style={styles.container} testID={testID}>
+      <Text style={styles.text_content} testID={buildTestID(testID, 'text')}>
+        {text}
+      </Text>
     </View>
   );
 };
