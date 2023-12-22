@@ -3,12 +3,13 @@ import {
   SNAP_POINTS_MEDIUM_FULL_HEIGHT,
   bottomSheetModalRef,
 } from '@app/modal/BottomSheetModal';
-import { LinkedInModalContent } from '@app/screens/BottomSheetScreen/components/LinkedInModalContent';
-import { SignInModalContent } from '@app/screens/BottomSheetScreen/components/SignInModalContent';
-import { mockReactNativeRole } from '@app/screens/BottomSheetScreen/mocks';
 import { useCallback } from 'react';
 import { Dimensions, Pressable, Text, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
+
+import { LinkedInModalContent } from './components/LinkedInModalContent';
+import { SignInModalContent } from './components/SignInModalContent';
+import { mockReactNativeRole } from './mocks';
 
 const { width } = Dimensions.get('window');
 
@@ -38,12 +39,8 @@ export const BottomSheetScreen = () => {
   );
 
   const handleOpenLinkedInModal = useCallback(() => {
-    const ModalContent = () => (
-      <LinkedInModalContent role={mockReactNativeRole} testID="linkedInModalContent" />
-    );
-
     bottomSheetModalRef.current?.open({
-      content: <ModalContent />,
+      content: <LinkedInModalContent role={mockReactNativeRole} testID="linkedInModalContent" />,
       title: mockReactNativeRole.roleInfo.title,
       snapPoints: SNAP_POINTS_MEDIUM_FULL_HEIGHT,
     });
