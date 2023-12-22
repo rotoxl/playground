@@ -10,7 +10,7 @@ describe('BottomSheetScreen', () => {
   it('should open linkedInModal with the right parameters', () => {
     const { getByTestId } = render(<BottomSheetScreen />);
 
-    fireEvent.press(getByTestId('test1'));
+    fireEvent.press(getByTestId('buttonLinkedIn'));
     expect(mockOpenModal).toHaveBeenCalledWith(
       expect.objectContaining({
         snapPoints: ['65%', '100%'],
@@ -22,7 +22,7 @@ describe('BottomSheetScreen', () => {
   it('should open smallModal with the right parameters', () => {
     const { getByTestId } = render(<BottomSheetScreen />);
 
-    fireEvent.press(getByTestId('test2'));
+    fireEvent.press(getByTestId('buttonSignIn'));
     expect(mockOpenModal).toHaveBeenCalledWith(
       expect.objectContaining({
         snapPoints: ['CONTENT_HEIGHT'],
