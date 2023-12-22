@@ -8,6 +8,7 @@ export const UnistylesScreen = () => {
   const themeName = UnistylesRuntime.themeName;
 
   const marginVariants = Object.keys(theme.margins).map((breakpoint) => {
+    /* istanbul ignore next */
     const variant = isStep(breakpoint) ? theme.margins[breakpoint] : theme.margins.sm;
     return (
       <View

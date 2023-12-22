@@ -1,6 +1,6 @@
 import { RoleModel } from '@app/screens/BottomSheetScreen/types';
 
-export const reactNativeRole: RoleModel = {
+export const mockReactNativeRole: RoleModel = {
   company: {
     name: 'Psiconnea',
     location: 'New York, NY',
