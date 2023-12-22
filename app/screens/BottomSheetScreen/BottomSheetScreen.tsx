@@ -16,8 +16,18 @@ export const BottomSheetScreen = () => {
   const { styles } = useStyles(stylesheet);
 
   const Card = useCallback(
-    ({ title, text, onPress }: { title: string; text?: string; onPress: () => void }) => (
-      <Pressable onPress={onPress} style={styles.item}>
+    ({
+      title,
+      text,
+      onPress,
+      testID,
+    }: {
+      title: string;
+      text?: string;
+      onPress: () => void;
+      testID?: string;
+    }) => (
+      <Pressable onPress={onPress} style={styles.item} testID={testID}>
         <View>
           <Text style={styles.item_title}>{title}</Text>
           <Text style={styles.item_text}>{text}</Text>
@@ -28,7 +38,9 @@ export const BottomSheetScreen = () => {
   );
 
   const handleOpenLinkedInModal = useCallback(() => {
-    const ModalContent = () => <LinkedInModalContent role={mockReactNativeRole} />;
+    const ModalContent = () => (
+      <LinkedInModalContent role={mockReactNativeRole} testID="linkedInModalContent" />
+    );
 
     bottomSheetModalRef.current?.open({
       content: <ModalContent />,
@@ -49,11 +61,13 @@ export const BottomSheetScreen = () => {
       <Card
         title="Bottom Sheet"
         text="fixedHeight+fullScreen bottom sheet"
+        testID="test1"
         onPress={handleOpenLinkedInModal}
       />
       <Card
         title="Bottom Sheet"
         text="Dynamic height bottom sheet, Sign in dialog"
+        testID="test2"
         onPress={handleOpenSmallModal}
       />
     </View>

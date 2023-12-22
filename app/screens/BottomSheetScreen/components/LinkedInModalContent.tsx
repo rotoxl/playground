@@ -11,7 +11,7 @@ import { createStyleSheet, useStyles } from 'react-native-unistyles';
 import { Tag } from './Tag';
 import { useSkillList } from '../useSkillList';
 
-export const LinkedInModalContent = ({ role }: { role: RoleModel }) => {
+export const LinkedInModalContent = ({ role, testID }: { role: RoleModel; testID?: string }) => {
   const { styles, theme } = useStyles(stylesheet);
   const { t } = useTranslations();
   const { bottom } = useSafeAreaInsets();
@@ -83,7 +83,7 @@ export const LinkedInModalContent = ({ role }: { role: RoleModel }) => {
   );
 
   return (
-    <View style={styles.rootContainer}>
+    <View style={styles.rootContainer} testID={testID}>
       <ScrollView
         contentContainerStyle={[styles.scrollView, { bottom }]}
         showsVerticalScrollIndicator={false}>

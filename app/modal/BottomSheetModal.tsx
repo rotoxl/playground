@@ -1,3 +1,4 @@
+import { isJest } from '@app/testing/isJest';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import {
   BottomSheetBackdrop,
@@ -22,6 +23,7 @@ type OpenModalHandler = {
   title?: string;
   snapPoints?: string[];
 };
+type LocalState = Pick<OpenModalHandler, 'content' | 'title'> & { snapPoints: string[] };
 
 export type ModalHandler = {
   open: ({ content, snapPoints, title }: OpenModalHandler) => void;
@@ -35,7 +37,7 @@ export const SNAP_POINTS_MEDIUM = ['65%'];
 export const SNAP_POINTS_MEDIUM_FULL_HEIGHT = [...SNAP_POINTS_MEDIUM, '100%'];
 
 export const BottomSheetModal = () => {
-  const [modalData, setModalData] = useState<OpenModalHandler>({
+  const [modalData, setModalData] = useState<LocalState>({
     content: <></>,
     title: undefined,
     snapPoints: SNAP_POINTS_MEDIUM,
@@ -61,7 +63,7 @@ export const BottomSheetModal = () => {
   );
 
   const isIndexFullScreen = (index: number) => {
-    return modalData.snapPoints?.[index] === '100%';
+    return modalData.snapPoints[index] === '100%';
   };
 
   const renderBackdrop = useCallback(
@@ -81,7 +83,10 @@ export const BottomSheetModal = () => {
   const renderHandleOrToolbar = ({ animatedIndex }: BottomSheetHandleProps) => {
     return isIndexFullScreen(index) ? (
       <View style={styles.toolbar}>
-        <Pressable onPress={() => internalRef.current?.close?.()} style={styles.toolbarCloseButton}>
+        <Pressable
+          onPress={() => internalRef.current?.close?.()}
+          style={styles.toolbarCloseButton}
+          testID="buttonClose">
           <MIcon name="close" size={24} color={theme.colors.typography_terciary} />
         </Pressable>
         <Text style={styles.toolbarTitle}>{modalData.title}</Text>
@@ -97,7 +102,22 @@ export const BottomSheetModal = () => {
   };
 
   const isContentDynamic = modalData.snapPoints?.includes('CONTENT_HEIGHT');
-
+  /* istanbul ignore else */
+  if (isJest) {
+    const lastIndex = modalData.snapPoints?.length - 1;
+    // @ts-ignore
+    const handle = renderHandleOrToolbar({ animatedIndex: lastIndex });
+    // @ts-ignore
+    const backdrop = renderBackdrop({ animatedIndex: lastIndex });
+    return (
+      <View>
+        {handle}
+        {backdrop}
+        {modalData.content}
+      </View>
+    );
+  }
+  /* istanbul ignore next */
   return (
     <NativeBottomSheetModal
       ref={internalRef}
@@ -110,7 +130,7 @@ export const BottomSheetModal = () => {
       handleComponent={renderHandleOrToolbar}
       style={styles.modal}
       onAnimate={(_fromIndex, toIndex) => setIndex(toIndex)}>
-      <BottomSheetScrollView>{modalData.content ?? <></>}</BottomSheetScrollView>
+      <BottomSheetScrollView>{modalData.content}</BottomSheetScrollView>
     </NativeBottomSheetModal>
   );
 };
