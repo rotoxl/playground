@@ -9,12 +9,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { Tag } from './Tag';
-import { getSkillList } from '../utils';
+import { useSkillList } from '../useSkillList';
 
 export const LinkedInModalContent = ({ role }: { role: RoleModel }) => {
   const { styles, theme } = useStyles(stylesheet);
   const { t } = useTranslations();
   const { bottom } = useSafeAreaInsets();
+  const { getSkillList } = useSkillList();
 
   const Content = useCallback(
     () => (

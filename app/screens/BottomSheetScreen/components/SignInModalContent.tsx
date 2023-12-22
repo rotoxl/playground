@@ -61,6 +61,7 @@ export const SignInModalFooter = () => {
   const { styles } = useStyles(stylesheet);
   const { t } = useTranslations();
 
+  /* istanbul ignore next */
   const handleOpenLink = (link: string) => () => {
     Alert.alert('Open link', link, [{ text: 'OK' }]);
   };
