@@ -57,13 +57,13 @@ export const BottomSheetScreen = () => {
     <View style={styles.rootContainer}>
       <Card
         title="Bottom Sheet"
-        text="fixedHeight+fullScreen bottom sheet"
+        text="fixedHeight bottom sheet"
         testID="buttonLinkedIn"
         onPress={handleOpenLinkedInModal}
       />
       <Card
         title="Bottom Sheet"
-        text="Dynamic height bottom sheet, Sign in dialog"
+        text="Dynamic height: Sign in dialog"
         testID="buttonSignIn"
         onPress={handleOpenSmallModal}
       />

@@ -1,4 +1,5 @@
 import { isJest } from '@app/testing/isJest';
+import { useCustomSafeArea } from '@app/ui/layout/useCustomSafeArea';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import {
   BottomSheetBackdrop,
@@ -46,6 +47,7 @@ export const BottomSheetModal = () => {
   const internalRef = useRef<NativeBottomSheetModal>(null);
 
   const { styles, theme } = useStyles(stylesheet);
+  const { top } = useCustomSafeArea();
 
   useImperativeHandle(
     bottomSheetModalRef,
@@ -82,7 +84,7 @@ export const BottomSheetModal = () => {
 
   const renderHandleOrToolbar = ({ animatedIndex }: BottomSheetHandleProps) => {
     return isIndexFullScreen(index) ? (
-      <View style={styles.toolbar}>
+      <View style={[styles.toolbar, { marginTop: top }]}>
         <Pressable
           onPress={() => internalRef.current?.close?.()}
           style={styles.toolbarCloseButton}
@@ -130,7 +132,9 @@ export const BottomSheetModal = () => {
       handleComponent={renderHandleOrToolbar}
       style={styles.modal}
       onAnimate={(_fromIndex, toIndex) => setIndex(toIndex)}>
-      <BottomSheetScrollView>{modalData.content}</BottomSheetScrollView>
+      <BottomSheetScrollView showsVerticalScrollIndicator={false}>
+        {modalData.content}
+      </BottomSheetScrollView>
     </NativeBottomSheetModal>
   );
 };
@@ -155,7 +159,7 @@ const stylesheet = createStyleSheet((theme) => ({
     marginVertical: theme.margins.lg,
   },
   toolbar: {
-    height: 96,
+    height: 38,
     width: '100%',
 
     alignItems: 'center',

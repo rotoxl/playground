@@ -1,11 +1,11 @@
 import { useTranslations } from '@app/i18n/useTranslations';
 import { RoleModel } from '@app/screens/BottomSheetScreen/types';
 import { IconButton } from '@app/ui/buttons/IconButton/IconButton';
+import { useCustomSafeArea } from '@app/ui/layout/useCustomSafeArea';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import { useCallback } from 'react';
 import { Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { Tag } from './Tag';
@@ -14,7 +14,7 @@ import { useSkillList } from '../useSkillList';
 export const LinkedInModalContent = ({ role, testID }: { role: RoleModel; testID?: string }) => {
   const { styles, theme } = useStyles(stylesheet);
   const { t } = useTranslations();
-  const { bottom } = useSafeAreaInsets();
+  const { bottom } = useCustomSafeArea();
   const { getSkillList } = useSkillList();
 
   const Content = useCallback(
@@ -84,9 +84,7 @@ export const LinkedInModalContent = ({ role, testID }: { role: RoleModel; testID
 
   return (
     <View style={styles.rootContainer} testID={testID}>
-      <ScrollView
-        contentContainerStyle={[styles.scrollView, { bottom }]}
-        showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={[styles.scrollView, { paddingBottom: bottom }]}>
         <Content />
       </ScrollView>
     </View>
@@ -131,10 +129,12 @@ const stylesheet = createStyleSheet((theme) => ({
     ...theme.fonts.body,
     lineHeight: 26,
     fontWeight: 'bold',
+    color: theme.colors.typography_main,
   },
 
   contentText: {
     ...theme.fonts.body,
     lineHeight: 20,
+    color: theme.colors.typography_main,
   },
 }));
