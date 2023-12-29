@@ -31,6 +31,11 @@ export const HomeScreen = () => {
       subtitle: 'LinkedIn style bottom sheet.',
       screenName: 'BottomSheetScreen',
     },
+    {
+      title: 'Snackbar',
+      subtitle: 'Snackbar that should sit on top of everything.',
+      screenName: 'SnackbarScreen',
+    },
   ] satisfies CaseType[];
 
   const handleNavigateCase = useCallback(

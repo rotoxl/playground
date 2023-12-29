@@ -1,10 +1,10 @@
 import { useTranslations } from '@app/i18n/useTranslations';
 import { IconButton } from '@app/ui/buttons/IconButton/IconButton';
+import { useCustomSafeArea } from '@app/ui/layout/useCustomSafeArea';
 import { TextLink } from '@app/ui/text/TextLink';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import { useCallback } from 'react';
 import { Alert, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 export const SignInModalContent = () => {
@@ -57,7 +57,7 @@ export const SignInModalContent = () => {
 };
 
 export const SignInModalFooter = () => {
-  const { bottom } = useSafeAreaInsets();
+  const { bottom } = useCustomSafeArea();
   const { styles } = useStyles(stylesheet);
   const { t } = useTranslations();
 
@@ -110,9 +110,11 @@ const stylesheet = createStyleSheet((theme) => ({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: theme.margins.xl,
+    color: theme.colors.typography_main,
   },
   buttonText: {
     ...theme.fonts.button,
+    color: theme.colors.typography_main,
   },
   textBody: {
     ...theme.fonts.body,
@@ -120,12 +122,11 @@ const stylesheet = createStyleSheet((theme) => ({
   },
   textDisclaimer: {
     ...theme.fonts.small,
-    color: theme.colors.typography_terciary,
+    color: theme.colors.typography_secondary,
     textAlign: 'center',
     marginTop: theme.margins.xl,
   },
   footer: {
-    // backgroundColor: theme.colors.window,
     paddingHorizontal: theme.margins.lg,
   },
 }));
