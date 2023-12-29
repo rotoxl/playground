@@ -19,5 +19,5 @@ export const SnackbarScreen = () => {
     showSnackbarOkButton(msg);
   };
 
-  return <FAB icon="message-flash" onPress={handleShowSnackbar} />;
+  return <FAB icon="message-flash" onPress={handleShowSnackbar} testID="FAB" />;
 };

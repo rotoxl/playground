@@ -1,3 +1,5 @@
+import { buildTestID } from '@app/testing/buildTestID';
+import { TestProps } from '@app/testing/testProps';
 import { colors } from '@app/themes/themes';
 import { useCustomSafeArea } from '@app/ui/layout/useCustomSafeArea';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
@@ -9,13 +11,14 @@ type Props = {
   onPress: () => void;
   color?: ColorValue;
   backgroundColor?: ColorValue;
-};
+} & TestProps;
 
 export const FAB = ({
   icon,
   onPress,
   color = colors.white,
   backgroundColor = colors.burntSienna,
+  testID,
 }: Props) => {
   const { styles } = useStyles(stylesheet);
   const { bottom } = useCustomSafeArea();
@@ -34,9 +37,12 @@ export const FAB = ({
   // }, []);
 
   return (
-    <View style={[styles.container, { bottom }]}>
-      <Pressable style={[styles.button, { backgroundColor }]} onPress={onPress} testID="fab">
-        <MIcon name={icon} size={24} color={color} />
+    <View style={[styles.container, { bottom }]} testID={testID}>
+      <Pressable
+        style={[styles.button, { backgroundColor }]}
+        onPress={onPress}
+        testID={buildTestID(testID, 'button')}>
+        <MIcon name={icon} size={24} color={color} testID={buildTestID(testID, 'icon')} />
       </Pressable>
     </View>
   );
