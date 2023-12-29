@@ -1,8 +1,7 @@
 import { colors } from '@app/themes/themes';
 import { useCustomSafeArea } from '@app/ui/layout/useCustomSafeArea';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
-import { useEffect } from 'react';
-import { ColorValue, NativeEventEmitter, NativeModules, Pressable, View } from 'react-native';
+import { ColorValue, Pressable, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 type Props = {
