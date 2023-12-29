@@ -1,6 +1,7 @@
 import { BottomSheetScreen } from '@app/screens/BottomSheetScreen/BottomSheetScreen';
 import { HomeScreen } from '@app/screens/HomeScreen/HomeScreen';
 import { LocalizationScreen } from '@app/screens/LocalizationScreen/LocalizationScreen';
+import { SnackbarScreen } from '@app/screens/SnackbarScreen/SnackbarScreen';
 import { UnistylesScreen } from '@app/screens/UnistylesScreen/UnistylesScreen';
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import {
@@ -70,6 +71,14 @@ export const RootNavigator = () => {
         component={BottomSheetScreen}
         options={{
           title: 'BottomSheet experiment',
+          ...screenOptions(theme),
+        }}
+      />
+      <Stack.Screen
+        name="SnackbarScreen"
+        component={SnackbarScreen}
+        options={{
+          title: 'Snackbar experiment',
           ...screenOptions(theme),
         }}
       />
