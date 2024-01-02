@@ -2,8 +2,10 @@ This is a playground app with:
 
 - ✅ Expo / React Native (upgraded to beta-50)
 - ✅ TypeScript
-- [TODO] Jest and Maestro
 - ✅ `react-navigation`
 - ✅ `i18n`
 - ✅ Unit test with `Jest`
+- ✅ E2E test with `Maestro` (local)
+  - run `yarn maestro:install` to setup maestro locally
+  - run `yarn maestro:test:all` or `yarn maestro:test:smokeTest`
 - ✅ `Unistyles` (requires prebuild `npx expo prebuild --clean``)

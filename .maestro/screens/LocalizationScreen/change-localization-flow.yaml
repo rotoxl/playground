@@ -1,0 +1,12 @@
+appId: com.example.app
+tags:
+    - smokeTest
+---
+- launchApp
+- tapOn:
+    id: "Localization"
+- waitForAnimationToEnd
+- assertVisible: "hello dear Ernesto!"
+- tapOn:
+    id: "changeES"
+- assertVisible: "Hola Ernesto!"

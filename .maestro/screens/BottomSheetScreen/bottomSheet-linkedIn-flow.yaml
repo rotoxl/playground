@@ -1,0 +1,25 @@
+appId: com.example.app
+tags:
+    - smokeTest
+---
+- launchApp
+- tapOn:
+    id: "BottomSheet"
+- waitForAnimationToEnd
+- tapOn:
+    id: "buttonLinkedIn"
+- assertVisible: 
+    id: "roleType"
+- swipe:
+    from:
+      id: "roleType"
+    direction: UP
+    duration: 400
+- tapOn: "Bottom Sheet handle"
+- swipe:
+    from:
+      id: "roleType"
+    direction: DOWN
+    duration: 400
+- assertNotVisible: 
+    id: "roleType"
