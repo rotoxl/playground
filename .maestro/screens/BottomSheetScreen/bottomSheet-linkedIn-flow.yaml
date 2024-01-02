@@ -1,4 +1,6 @@
 appId: com.example.app
+tags:
+    - smokeTest
 ---
 - launchApp
 - tapOn:
