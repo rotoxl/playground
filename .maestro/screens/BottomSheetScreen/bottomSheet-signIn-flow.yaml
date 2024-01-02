@@ -1,0 +1,17 @@
+appId: com.example.app
+---
+- launchApp
+- tapOn:
+    id: "BottomSheet"
+- waitForAnimationToEnd
+- tapOn:
+    id: "buttonSignIn"
+- waitForAnimationToEnd
+- tapOn:
+    id: "signInGoogle"
+- assertVisible: "Button click"
+- tapOn: "OK"
+- tapOn:
+    point: 50%,50%
+- assertNotVisible: 
+    id: "signInGoogle"
