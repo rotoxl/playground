@@ -9,8 +9,9 @@
     "web": "expo start --web",
     "lint": "eslint .",
     "test": "env TZ='Australia/Brisbane' jest --verbose --coverage",
-    "maestro:all": "maestro test .maestro",
-    "maestro:smokeTest": "maestro test --include-tags smokeTest .maestro"
+    "maestro:install": "curl -Ls \"https://get.maestro.mobile.dev\" | bash",
+    "maestro:test:all": "maestro test .maestro",
+    "maestro:test:smokeTest": "maestro test --include-tags smokeTest .maestro"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
