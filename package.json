@@ -6,12 +6,14 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
+    "ios:release": "expo run:ios --configuration Release",
     "web": "expo start --web",
     "lint": "eslint .",
     "test": "env TZ='Australia/Brisbane' jest --verbose --coverage",
     "maestro:install": "curl -Ls \"https://get.maestro.mobile.dev\" | bash",
     "maestro:test:all": "maestro test .maestro",
-    "maestro:test:smokeTest": "maestro test --include-tags smokeTest .maestro"
+    "maestro:test:smokeTest": "maestro test --include-tags smokeTest .maestro",
+    "maestro:cloud:all": "maestro cloud ./ios/build/Products/Release-iphonesimulator/expoplayground.app .maestro"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
