@@ -180,10 +180,10 @@ const stylesheet = createStyleSheet((theme) => ({
   },
 
   modalContentTitle: {
-    ...theme.fonts.headline1,
+    ...theme.fonts.headline2,
     color: theme.colors.typography_main,
     paddingHorizontal: theme.margins.lg,
-    borderBottomColor: theme.colors.typography_main,
-    borderBottomWidth: 2,
+    borderBottomColor: theme.colors.window,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 }));

@@ -1,6 +1,8 @@
 import { useNavigation } from '@app/navigation/hooks/useNavigation';
 import { RouteKeys } from '@app/navigation/routes';
+import { ScreenFooter } from '@app/ui/layout/ScreenFooter';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
+import * as Application from 'expo-application';
 import { useCallback } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
@@ -36,6 +38,11 @@ export const HomeScreen = () => {
       subtitle: 'Snackbar that should sit on top of everything.',
       screenName: 'SnackbarScreen',
     },
+    {
+      title: 'Updates',
+      subtitle: 'OTA updates via EAS.',
+      screenName: 'UpdateScreen',
+    },
   ] satisfies CaseType[];
 
   const handleNavigateCase = useCallback(
@@ -63,6 +70,11 @@ export const HomeScreen = () => {
   return (
     <View style={styles.rootContainer}>
       <ScrollView contentContainerStyle={styles.fullScreen}>{listItems}</ScrollView>
+      <ScreenFooter>
+        <Text style={styles.versionNumber}>
+          Version {Application.nativeApplicationVersion} - update 15
+        </Text>
+      </ScreenFooter>
     </View>
   );
 };
@@ -98,5 +110,10 @@ const stylesheet = createStyleSheet((theme) => ({
   subtitle: {
     fontSize: 14,
     color: theme.colors.typography_secondary,
+  },
+  versionNumber: {
+    fontSize: 12,
+    color: theme.colors.typography_terciary,
+    textAlign: 'center',
   },
 }));

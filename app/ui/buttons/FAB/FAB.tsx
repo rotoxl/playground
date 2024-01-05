@@ -3,7 +3,7 @@ import { TestProps } from '@app/testing/testProps';
 import { colors } from '@app/themes/themes';
 import { useCustomSafeArea } from '@app/ui/layout/useCustomSafeArea';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
-import { ColorValue, Pressable, View } from 'react-native';
+import { ActivityIndicator, ColorValue, Pressable, View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 type Props = {
@@ -11,6 +11,7 @@ type Props = {
   onPress: () => void;
   color?: ColorValue;
   backgroundColor?: ColorValue;
+  isLoading?: boolean;
 } & TestProps;
 
 export const FAB = ({
@@ -18,6 +19,7 @@ export const FAB = ({
   onPress,
   color = colors.white,
   backgroundColor = colors.burntSienna,
+  isLoading = false,
   testID,
 }: Props) => {
   const { styles } = useStyles(stylesheet);
@@ -42,7 +44,11 @@ export const FAB = ({
         style={[styles.button, { backgroundColor }]}
         onPress={onPress}
         testID={buildTestID(testID, 'button')}>
-        <MIcon name={icon} size={24} color={color} testID={buildTestID(testID, 'icon')} />
+        {isLoading ? (
+          <ActivityIndicator color={color} />
+        ) : (
+          <MIcon name={icon} size={24} color={color} testID={buildTestID(testID, 'icon')} />
+        )}
       </Pressable>
     </View>
   );
