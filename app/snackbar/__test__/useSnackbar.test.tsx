@@ -17,7 +17,7 @@ describe('useSnackbar', () => {
 
     expect(Snackbar.show).toHaveBeenCalledWith({
       text: 'Test message',
-      duration: Snackbar.LENGTH_INDEFINITE,
+      duration: Snackbar.LENGTH_LONG,
     });
   });
 

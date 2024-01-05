@@ -3069,6 +3069,11 @@ application-config-path@^0.1.0:
   resolved "https://registry.npmjs.org/application-config-path/-/application-config-path-0.1.1.tgz"
   integrity sha512-zy9cHePtMP0YhwG+CfHm0bgwdnga2X3gZexpdCwEj//dpb+TKajtiC8REEUJUSq6Ab4f9cgNy2l8ObXzCXFkEw==
 
+arg@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/arg/-/arg-4.1.0.tgz#583c518199419e0037abb74062c37f8519e575f0"
+  integrity sha512-ZWc51jO3qegGkVh8Hwpv636EkbesNV5ZNQPCtRa+0qytRYPEs9IYT9qITY9buezqUH5uqyzlWLcufrzU2rffdg==
+
 arg@5.0.2:
   version "5.0.2"
   resolved "https://registry.npmjs.org/arg/-/arg-5.0.2.tgz"
@@ -4739,6 +4744,11 @@ expect@^29.0.0, expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
+expo-application@~5.8.1:
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/expo-application/-/expo-application-5.8.1.tgz#9a8628514a6dbe06d8104ce9e2712977fdbd9589"
+  integrity sha512-8BRbB69HDjDQ7zwurqZ5/nKp3sN7DLXXjYEvakjf6LaEXwn16V4ClqCxb2KRAeKoWX3ORwKnvqM8F5uz9tfM9A==
+
 expo-asset@~9.0.0:
   version "9.0.0"
   resolved "https://registry.npmjs.org/expo-asset/-/expo-asset-9.0.0.tgz"
@@ -4759,6 +4769,11 @@ expo-constants@~15.4.0:
     "@expo/config" "~8.5.0"
     uuid "^3.3.2"
 
+expo-eas-client@~0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/expo-eas-client/-/expo-eas-client-0.11.0.tgz#0f25aa497849cade7ebef55c0631093a87e58b07"
+  integrity sha512-99W0MUGe3U4/MY1E9UeJ4uKNI39mN8/sOGA0Le8XC47MTbwbLoVegHR3C5y2fXLwLn7EpfNxAn5nlxYjY3gD2A==
+
 expo-file-system@~16.0.0:
   version "16.0.0"
   resolved "https://registry.npmjs.org/expo-file-system/-/expo-file-system-16.0.0.tgz"
@@ -4772,6 +4787,11 @@ expo-font@~11.10.0:
   integrity sha512-yqlsoOKWiYv8aBMFqheHSUKKEY/lrB7zHjzDc60OF1xGa1q8kh7mKQVwSaRMS0G77GEUvvk8Vb/uKw51KY1kGA==
   dependencies:
     fontfaceobserver "^2.1.0"
+
+expo-json-utils@~0.12.0:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/expo-json-utils/-/expo-json-utils-0.12.1.tgz#415704d6c91016a4d6482b83b87c42eb03b74aea"
+  integrity sha512-iZP3Wiywgefgk1QDtGiV5CihQ7lB/iFp04Oelbt/NNq1S6CiYX10LD+0oqf5SCW9vr3MXT1zfkA4egb4GrWfAw==
 
 expo-keep-awake@~12.8.0:
   version "12.8.0"
@@ -4792,6 +4812,14 @@ expo-localization@~14.8.0:
   integrity sha512-YpzKJU/tdWWxYCmAClQdrrbazL7JSSbMgZVDEO/Fe1ufoBR4/Mz3lRqaodMk0qAQAduZiHGzpbmZPSQ2nCk7+g==
   dependencies:
     rtl-detect "^1.0.2"
+
+expo-manifests@~0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/expo-manifests/-/expo-manifests-0.13.0.tgz#20f163f84a414c6c50b8079e5fd0685d7c5b8ce2"
+  integrity sha512-N3adl3edSga3jdatLXjXiltdSwQkB1rOI5uyGEE5OwR/bpxc/5OUgHdRZjJgY6jJmVY4BCAiw0RXFoVRBbgE0Q==
+  dependencies:
+    "@expo/config" "~8.5.0"
+    expo-json-utils "~0.12.0"
 
 expo-modules-autolinking@1.9.0:
   version "1.9.0"
@@ -4824,6 +4852,11 @@ expo-status-bar@~1.11.0:
   resolved "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.11.0.tgz"
   integrity sha512-R4mngjIWS5gZPAWHrfIgwK89oPFqRWYrOu9TQ2WqaC+NTcIUBDq+8aSgjq9BRclqzR0Wwom1vOXSOZ1jtJuwFQ==
 
+expo-structured-headers@~3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/expo-structured-headers/-/expo-structured-headers-3.7.0.tgz#69b752cf43515535eccd30513da428688634a7ec"
+  integrity sha512-uGcU65gzP4trfmVtntAg3rU/pytTGpCUXN+hQmCwCCvQb9qK1aoCXvVlqlW5zP8SZ04tzF1WXKR+P8RSEn5rSw==
+
 expo-system-ui@~2.9.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/expo-system-ui/-/expo-system-ui-2.9.2.tgz#f6af7df366f38e31564c49a68cffd94c917459b6"
@@ -4831,6 +4864,28 @@ expo-system-ui@~2.9.2:
   dependencies:
     "@react-native/normalize-color" "^2.0.0"
     debug "^4.3.2"
+
+expo-updates-interface@~0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/expo-updates-interface/-/expo-updates-interface-0.15.1.tgz#b0242fa7ba05768ada2f0faf83b90aa8b8fa65d7"
+  integrity sha512-B42oOB0pw4TaPoOGE/yzt9ggwNNxo3PEJRU0kIOurQ8hW5UEUC8cAbGQDYWGbTyNGp8gLBG+T2MCg+YYaCYJUw==
+
+expo-updates@~0.24.5:
+  version "0.24.5"
+  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.24.5.tgz#4fb88863a8be35ef6d4dd33d64c0050fa67a4244"
+  integrity sha512-mTimcPq8RCtiOv828nCgzgsXuph0hywll3XTnZywGHrrWtdKg7rZ5xGN8h+Yd2nKyMOUtymnZBk99Q9T1xrgoQ==
+  dependencies:
+    "@expo/code-signing-certificates" "0.0.5"
+    "@expo/config" "~8.5.0"
+    "@expo/config-plugins" "~7.8.0"
+    arg "4.1.0"
+    chalk "^4.1.2"
+    expo-eas-client "~0.11.0"
+    expo-manifests "~0.13.0"
+    expo-structured-headers "~3.7.0"
+    expo-updates-interface "~0.15.1"
+    fbemitter "^3.0.0"
+    resolve-from "^5.0.0"
 
 expo@^50.0.0-preview.1:
   version "50.0.0-preview.1"

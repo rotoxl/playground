@@ -3,6 +3,7 @@ import { HomeScreen } from '@app/screens/HomeScreen/HomeScreen';
 import { LocalizationScreen } from '@app/screens/LocalizationScreen/LocalizationScreen';
 import { SnackbarScreen } from '@app/screens/SnackbarScreen/SnackbarScreen';
 import { UnistylesScreen } from '@app/screens/UnistylesScreen/UnistylesScreen';
+import { UpdateScreen } from '@app/screens/UpdateScreen/UpdateScreen';
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import {
   NativeStackNavigationOptions,
@@ -79,6 +80,14 @@ export const RootNavigator = () => {
         component={SnackbarScreen}
         options={{
           title: 'Snackbar experiment',
+          ...screenOptions(theme),
+        }}
+      />
+      <Stack.Screen
+        name="UpdateScreen"
+        component={UpdateScreen}
+        options={{
+          title: 'OTA updates experiment',
           ...screenOptions(theme),
         }}
       />

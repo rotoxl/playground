@@ -5,7 +5,6 @@ import { useCustomSafeArea } from '@app/ui/layout/useCustomSafeArea';
 import MIcon from '@expo/vector-icons/MaterialCommunityIcons';
 import { useCallback } from 'react';
 import { Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
 import { Tag } from './Tag';
@@ -84,9 +83,9 @@ export const LinkedInModalContent = ({ role, testID }: { role: RoleModel; testID
 
   return (
     <View style={styles.rootContainer} testID={testID}>
-      <ScrollView contentContainerStyle={[styles.scrollView, { paddingBottom: bottom }]}>
+      <View style={[styles.scrollView, { paddingBottom: bottom }]}>
         <Content />
-      </ScrollView>
+      </View>
     </View>
   );
 };

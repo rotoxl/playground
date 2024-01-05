@@ -6,6 +6,7 @@ export type HomeStackParamsList = {
   UnistylesScreen: undefined;
   BottomSheetScreen: undefined;
   SnackbarScreen: undefined;
+  UpdateScreen: undefined;
 };
 
 export type StackNavigation = NativeStackNavigationProp<RouteParamsList>;

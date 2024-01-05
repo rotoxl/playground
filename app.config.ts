@@ -5,6 +5,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   name: 'expo-playground',
   slug: 'expo-playground',
   version: '1.0.0',
+  runtimeVersion: '1.0.0',
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
@@ -26,17 +27,35 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       CFBundleAllowMixedLocalizations: true,
       UIBackgroundModes: ['location', 'fetch', 'remote-notification'],
     },
-    bundleIdentifier: 'com.example.app',
+    bundleIdentifier: 'in.breathefree.prod',
   },
   android: {
     adaptiveIcon: {
       foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#ffffff',
     },
-    package: 'com.example.app',
+    package: 'in.breathefree.prod',
   },
   web: {
     favicon: './assets/favicon.png',
   },
-  plugins: ['expo-localization'],
+  updates: {
+    enabled: true,
+    checkAutomatically: 'ON_LOAD',
+    url: 'https://u.expo.dev/908c423e-4b9f-4f45-ac12-215eb5863676',
+  },
+  plugins: [
+    'expo-localization',
+    [
+      'expo-updates',
+      {
+        username: 'rotoxl',
+      },
+    ],
+  ],
+  extra: {
+    eas: {
+      projectId: '908c423e-4b9f-4f45-ac12-215eb5863676',
+    },
+  },
 });
