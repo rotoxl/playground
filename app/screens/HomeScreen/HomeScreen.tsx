@@ -1,3 +1,4 @@
+import { useUpdate } from '@app/expo-updates/useUpdate';
 import { useNavigation } from '@app/navigation/hooks/useNavigation';
 import { RouteKeys } from '@app/navigation/routes';
 import { ScreenFooter } from '@app/ui/layout/ScreenFooter';
@@ -16,6 +17,7 @@ type CaseType = {
 export const HomeScreen = () => {
   const { navigateMain } = useNavigation();
   const { styles, theme } = useStyles(stylesheet);
+  const { updateId } = useUpdate();
 
   const cases = [
     {
@@ -72,7 +74,8 @@ export const HomeScreen = () => {
       <ScrollView contentContainerStyle={styles.fullScreen}>{listItems}</ScrollView>
       <ScreenFooter>
         <Text style={styles.versionNumber}>
-          Version {Application.nativeApplicationVersion} - update 15
+          Version {Application.nativeApplicationVersion}
+          {updateId ? `-${updateId}` : ''}
         </Text>
       </ScreenFooter>
     </View>

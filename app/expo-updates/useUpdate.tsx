@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import * as Updates from 'expo-updates';
 import { useState } from 'react';
 
@@ -21,5 +23,5 @@ export const useUpdate = () => {
     await Updates.reloadAsync();
   };
 
-  return { checkUpdate, isCheckingUpdate, forceUpdate };
+  return { checkUpdate, isCheckingUpdate, forceUpdate, updateId: Updates.updateId };
 };

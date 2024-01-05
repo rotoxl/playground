@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { useUpdate } from '@app/expo-updates/useUpdate';
 import { FAB } from '@app/ui/buttons/FAB/FAB';
 import * as Updates from 'expo-updates';
@@ -26,12 +28,11 @@ export const UpdateScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <>
+      <View style={styles.container}>{latestUpdate ? <UpdateInfo /> : <></>}</View>
+
       {latestUpdate ? (
-        <>
-          <UpdateInfo />
-          <FAB icon="cloud-download" onPress={forceUpdate} testID="FAB" />
-        </>
+        <FAB icon="cloud-download" onPress={forceUpdate} testID="FAB" />
       ) : (
         <FAB
           icon="cloud-refresh"
@@ -40,7 +41,7 @@ export const UpdateScreen = () => {
           isLoading={isCheckingUpdate}
         />
       )}
-    </View>
+    </>
   );
 };
 

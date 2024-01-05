@@ -5,7 +5,7 @@ export const useSnackbar = () => {
   const showSnackbar = useCallback((text: string) => {
     Snackbar.show({
       text,
-      duration: Snackbar.LENGTH_SHORT,
+      duration: Snackbar.LENGTH_LONG,
     });
   }, []);
 
